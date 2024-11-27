@@ -7,25 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <p style="position: absolute; left: 20px;">Jimmy Z</p>
-        <input type="checkbox" id="sidebar-active">
-        <label for="sidebar-active" class="open-sidebar-button">
-            <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+    <nav id="navbar">
+        <h1 style="margin-left: 10px; margin-right: auto;">Jimmy Z.</h1>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle">
+            <svg class="menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+            <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
         </label>
-        <label id="overlay" for="sidebar-active"></label>
-        <div class="links-container">
-            <label for="sidebar-active" class="close-sidebar-button">
-            <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-            </label>
-            
-            <div style="margin-right: auto;"></div>
-            <a href="#about">About Me</a>
-            <a href="#skills">Skills</a>
-            <a href="#project">Projects</a>
-            <a href="#contact">Contact</a>
+        <div class="dropdown">
+            <a href="#about" onclick="document.getElementById('menu-toggle').checked = false;">About Me</a>
+            <a href="#projects" onclick="document.getElementById('menu-toggle').checked = false;">Projects</a>
+            <a href="#contact" onclick="document.getElementById('menu-toggle').checked = false;">Contact</a>
         </div>
+    
+        <div class="overlay" onclick="document.getElementById('menu-toggle').checked = false;"></div>
     </nav>
+
+    <div style="background-color: #e95420; height: 100px">
+        <!--Banner-->
+    </div>
 
     <section id="about">
         <h2>About Me</h2>
@@ -48,7 +48,8 @@
         <div style="height:200px"></div>
     </section>
     <footer>
-        <p>&copy; 2024 UndefinedConcept AKA Jimmy</p>
+        <p>&copy; 2024 UndefinedConcept</p>
     </footer>
 </body>
+<script src="script.js"></script> 
 </html>
