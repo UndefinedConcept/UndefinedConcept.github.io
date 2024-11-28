@@ -6,11 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Toggle Icons with Dark Mode</title>
     <style>
-        :root {
-            --background-color: black;
-            --fill-color: white;
-        }
-
         body {
             display: flex;
             justify-content: center;
@@ -50,19 +45,31 @@
             transition: transform 0.6s ease, opacity 0.6s ease;
         }
 
-        input[type="checkbox"]:checked+.icon .moon {
+        input[type="checkbox"]:checked + .icon .moon {
             opacity: 0;
             transform: rotate(360deg);
         }
 
-        input[type="checkbox"]:checked+.icon .sun {
+        input[type="checkbox"]:checked + .icon .sun {
             opacity: 1;
             transform: rotate(360deg);
+        }
+
+        /* Light theme styles */
+        .light-theme {
+            --collections-background-color: white;
+            --collections-fill-color: black;
+        }
+
+        /* Dark theme styles */
+        .dark-theme {
+            --collections-background-color: black;
+            --collections-fill-color: white;
         }
     </style>
 </head>
 
-<body>
+<body class="dark-theme">
     <div class="container">
         <input type="checkbox" id="toggle" />
         <label for="toggle" class="icon">
@@ -78,16 +85,23 @@
     </div>
     <script>
         const toggle = document.getElementById("toggle");
+        // Function to apply the theme based on the stored session preference
+        function applyTheme() {
+            const theme = sessionStorage.getItem("theme") || "dark";
+            document.body.classList.toggle("light-theme", theme === "light");
+            document.body.classList.toggle("dark-theme", theme === "dark");
+            toggle.checked = theme === "light";
+        }
 
+        // Event listener to change the theme and store the session preference
         toggle.addEventListener("change", () => {
-            if (toggle.checked) {
-                document.documentElement.style.setProperty("--background-color", "white");
-                document.documentElement.style.setProperty("--fill-color", "black");
-            } else {
-                document.documentElement.style.setProperty("--background-color", "black");
-                document.documentElement.style.setProperty("--fill-color", "white");
-            }
+            const newTheme = toggle.checked ? "light" : "dark";
+            sessionStorage.setItem("theme", newTheme);
+            applyTheme();
         });
+
+        // Apply the theme on page load
+        applyTheme();
     </script>
 </body>
 
