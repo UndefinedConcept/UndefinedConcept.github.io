@@ -26,7 +26,7 @@ nav {
   width: 100%;
   background-color: var(--nav-color);
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   position: sticky;
   top: 0;
@@ -51,7 +51,8 @@ nav svg {
   width: 30px;
   margin: 10px;
 }
-.menu, .close{
+.menu,
+.close {
   display: none;
 }
 .dropdown {
@@ -109,7 +110,7 @@ nav svg {
     overflow: hidden;
     z-index: 4;
   }
-  nav .dropdown a{
+  nav .dropdown a {
     width: 100%;
   }
 
@@ -125,7 +126,6 @@ nav svg {
     bottom: 0;
     background: none;
     display: none; /* Hidden by default */
-
   }
 
   nav input[type="checkbox"]:checked ~ .overlay {
