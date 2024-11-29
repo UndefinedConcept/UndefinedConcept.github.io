@@ -33,7 +33,7 @@ nav {
   z-index: 5;
   transition: top 0.3s ease;
 }
-nav .dropdown a {
+nav a {
   color: var(--text-color);
   display: block;
   padding: 10px;
@@ -41,7 +41,7 @@ nav .dropdown a {
   position: relative;
   font-weight: bold;
 }
-nav a::before {
+nav .dropdown a::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -53,7 +53,7 @@ nav a::before {
   transform: scaleX(0);
   transition: transform 0.5s;
 }
-nav a:hover::before {
+nav .dropdown a:hover::before {
   transform-origin: left;
   transform: scaleX(1);
 }
