@@ -2,61 +2,173 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Navbar</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jimmy Zhang</title>
+    <!-- Font: Inter -->
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <!-- Main CSS Styles -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <nav id="navbar">
-        <h1 style="margin-left: 10px; margin-right: auto;"><a href="/">Jimmy Z.</a></h1>
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle">
-            <svg class="menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-            </svg>
-            <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-            </svg>
-        </label>
-        <div class="dropdown">
-            <a href="#about" onclick="document.getElementById('menu-toggle').checked = false;">About Me</a>
-            <a href="#projects" onclick="document.getElementById('menu-toggle').checked = false;">Projects</a>
-            <a href="#contact" onclick="document.getElementById('menu-toggle').checked = false;">Contact</a>
-        </div>
-
-        <div class="overlay" onclick="document.getElementById('menu-toggle').checked = false;"></div>
-    </nav>
-
-    <div style="background-color: #e95420; height: 100px">
-        <!--Banner-->
-    </div>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Write a brief introduction about yourself here.</p>
-
-        <div style="height:200px"></div>
+    <section>
+        <h1><span class="grad">Jimmy Zhang</span></h1>
+        <p style="color: var(--base-color-1)">Tech Enthusiast</p>
+        <p>I tinker with various coding concepts on the web.</p>
+        <!-- List of Socials as Icons -->
     </section>
 
-    <section id="projects">
+    <section>
+        <h2>About</h2>
+        <!-- Who I am -->
+        <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Eget montes ornare
+            metus sollicitudin potenti efficitur tempus. Congue sit vitae molestie
+            parturient taciti sem dictum integer consectetur.
+        </p>
+        <!-- What I am CURRENTLY -->
+        <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Nulla senectus
+            aliquet pharetra condimentum suscipit consectetur elementum tincidunt.
+            Erat felis tellus nostra blandit diam cursus. Conubia massa sapien
+            nostra, magnis convallis maecenas primis vitae.
+        </p>
+        <!-- What I am BEFORE -->
+        <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Venenatis congue
+            sem blandit arcu a potenti senectus. Eleifend dignissim sagittis tellus;
+            laoreet in aptent facilisi. Varius ullamcorper mi volutpat donec
+            placerat.
+        </p>
+        <!-- Hobbies/Free Time -->
+        <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Quis adipiscing
+            pulvinar tincidunt; ridiculus urna ridiculus. Torquent efficitur
+            faucibus nullam conubia adipiscing hac elit himenaeos.
+        </p>
+    </section>
+
+    <section>
+        <!-- ToDo -->
+        <h2>Education</h2>
+        <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Mus pharetra augue
+            sapien dictumst facilisis; netus potenti. Porttitor aliquet auctor
+            ridiculus turpis dignissim class. Enim ipsum mollis senectus quisque
+            etiam aliquet non nullam semper. Nam tortor enim pulvinar mus platea
+            sagittis. Enim iaculis sagittis vestibulum nascetur magna. Urna purus
+            placerat urna, laoreet cubilia rhoncus elit. Laoreet sit leo ultricies
+            consequat fusce curae platea accumsan.
+        </p>
+
+        <p>
+            Imperdiet faucibus feugiat aptent phasellus taciti lectus? Eros quam
+            pharetra orci nostra parturient proin. Molestie luctus taciti est purus,
+            enim ullamcorper. Pharetra dolor odio lacinia magna rutrum molestie
+            accumsan est taciti. Non efficitur rhoncus pretium adipiscing commodo
+            ac. Turpis primis vivamus ac augue mi dolor. Eget nibh proin molestie
+            vestibulum etiam maecenas suspendisse dui libero. Suscipit eget vel
+            blandit ridiculus non blandit suscipit. Convallis aliquam dignissim eget
+            nulla gravida donec auctor?
+        </p>
+
+        <p>
+            Enim ultrices curae morbi dolor urna augue. Auctor efficitur aliquam
+            eleifend eleifend pellentesque urna? Cursus elit rhoncus quis odio
+            efficitur ultrices pellentesque. Tempor fames cursus platea odio velit.
+            Amet vivamus accumsan quam dapibus amet malesuada turpis volutpat
+            montes. Purus sollicitudin odio condimentum ullamcorper sollicitudin
+            volutpat vestibulum. Placerat vel cras dictum vulputate pulvinar. Sapien
+            venenatis laoreet, class pretium efficitur enim metus dis.
+        </p>
+    </section>
+
+    <section>
+        <!-- ToDo -->
+        <h2>Experience</h2>
+        <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Mus pharetra augue
+            sapien dictumst facilisis; netus potenti. Porttitor aliquet auctor
+            ridiculus turpis dignissim class. Enim ipsum mollis senectus quisque
+            etiam aliquet non nullam semper. Nam tortor enim pulvinar mus platea
+            sagittis. Enim iaculis sagittis vestibulum nascetur magna. Urna purus
+            placerat urna, laoreet cubilia rhoncus elit. Laoreet sit leo ultricies
+            consequat fusce curae platea accumsan.
+        </p>
+
+        <p>
+            Imperdiet faucibus feugiat aptent phasellus taciti lectus? Eros quam
+            pharetra orci nostra parturient proin. Molestie luctus taciti est purus,
+            enim ullamcorper. Pharetra dolor odio lacinia magna rutrum molestie
+            accumsan est taciti. Non efficitur rhoncus pretium adipiscing commodo
+            ac. Turpis primis vivamus ac augue mi dolor. Eget nibh proin molestie
+            vestibulum etiam maecenas suspendisse dui libero. Suscipit eget vel
+            blandit ridiculus non blandit suscipit. Convallis aliquam dignissim eget
+            nulla gravida donec auctor?
+        </p>
+
+        <p>
+            Enim ultrices curae morbi dolor urna augue. Auctor efficitur aliquam
+            eleifend eleifend pellentesque urna? Cursus elit rhoncus quis odio
+            efficitur ultrices pellentesque. Tempor fames cursus platea odio velit.
+            Amet vivamus accumsan quam dapibus amet malesuada turpis volutpat
+            montes. Purus sollicitudin odio condimentum ullamcorper sollicitudin
+            volutpat vestibulum. Placerat vel cras dictum vulputate pulvinar. Sapien
+            venenatis laoreet, class pretium efficitur enim metus dis.
+        </p>
+    </section>
+
+    <section>
+        <!-- ToDo -->
         <h2>Projects</h2>
-        <p>List your projects here with links to their repositories or live demos.</p>
+        <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Mus pharetra augue
+            sapien dictumst facilisis; netus potenti. Porttitor aliquet auctor
+            ridiculus turpis dignissim class. Enim ipsum mollis senectus quisque
+            etiam aliquet non nullam semper. Nam tortor enim pulvinar mus platea
+            sagittis. Enim iaculis sagittis vestibulum nascetur magna. Urna purus
+            placerat urna, laoreet cubilia rhoncus elit. Laoreet sit leo ultricies
+            consequat fusce curae platea accumsan.
+        </p>
 
-        <div style="height:200px"></div>
+        <p>
+            Imperdiet faucibus feugiat aptent phasellus taciti lectus? Eros quam
+            pharetra orci nostra parturient proin. Molestie luctus taciti est purus,
+            enim ullamcorper. Pharetra dolor odio lacinia magna rutrum molestie
+            accumsan est taciti. Non efficitur rhoncus pretium adipiscing commodo
+            ac. Turpis primis vivamus ac augue mi dolor. Eget nibh proin molestie
+            vestibulum etiam maecenas suspendisse dui libero. Suscipit eget vel
+            blandit ridiculus non blandit suscipit. Convallis aliquam dignissim eget
+            nulla gravida donec auctor?
+        </p>
+
+        <p>
+            Enim ultrices curae morbi dolor urna augue. Auctor efficitur aliquam
+            eleifend eleifend pellentesque urna? Cursus elit rhoncus quis odio
+            efficitur ultrices pellentesque. Tempor fames cursus platea odio velit.
+            Amet vivamus accumsan quam dapibus amet malesuada turpis volutpat
+            montes. Purus sollicitudin odio condimentum ullamcorper sollicitudin
+            volutpat vestibulum. Placerat vel cras dictum vulputate pulvinar. Sapien
+            venenatis laoreet, class pretium efficitur enim metus dis.
+        </p>
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Provide your contact information or a contact form.</p>
-
-        <div style="height:200px"></div>
-    </section>
     <footer>
-        <p>&copy; 2024 UndefinedConcept</p>
+        <div class="footer-content">
+            <p>
+                Currently using <a href="https://loremipsum.io/">Lorem Ipsum Text</a> as placeholders.
+                Roughly planned in a notebook and coded in <a href="https://code.visualstudio.com/">Visual Studio Code</a> by yours truly.
+                Built with <a href="https://github.com/UndefinedConcept/UndefinedConcept.github.io">vanilla HTML, CSS, and JS</a>, deployed with <a href="https://pages.github.com/">GitHub Pages</a>.
+                All text is set in the <a href="https://rsms.me/inter/">Inter</a> typeface.
+            </p>
+            <p>&copy; 2024 Jimmy Zhang. All rights reserved.</p>
+        </div>
+        <div class="footer-socials">
+            <!-- List of Socials as Icons -->
+        </div>
     </footer>
 </body>
-<script src="script.js"></script>
 
 </html>
