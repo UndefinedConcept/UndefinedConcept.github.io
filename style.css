@@ -39,9 +39,6 @@ h1 {
 h2 {
   font-size: var(--text-size-lg);
   text-transform: uppercase;
-  position: sticky;
-  top: 0px;
-  backdrop-filter: blur(25px);
 }
 h3 {
   font-size: var(--text-size-lg);
@@ -82,3 +79,19 @@ a:hover, .btn:hover {
 /*********************************************************
 Sections
 *********************************************************/
+section {
+  padding: 0.5rem 0;
+}
+footer {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem 1.5rem;
+}
+section .header {
+  position: sticky;
+  top: 0px;
+  padding: 0 1.5rem;
+  backdrop-filter: blur(25px);
+}
+section .body {
+  padding: 0 1.5rem;
+}
