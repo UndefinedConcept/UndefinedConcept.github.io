@@ -39,6 +39,9 @@ h1 {
 h2 {
   font-size: var(--text-size-lg);
   text-transform: uppercase;
+  position: sticky;
+  top: 0px;
+  backdrop-filter: blur(25px);
 }
 h3 {
   font-size: var(--text-size-lg);
@@ -46,15 +49,15 @@ h3 {
 }
 
 /* Text Margin and Color */
-p, a, .btn, ul, h1, h2, h3 {
-  padding: 4px 0;
-  margin: 0;
-}
 h1, h2, h3 {
+  margin: 0;
+  padding: 0.5rem 0;
   color: var(--base-color-1);
   font-weight: bold;
 }
-p {
+p, ul{
+  margin: 0;
+  padding: 0 0 0.5rem 0;
   color: var(--base-color-2);
 }
 a, .btn  {
