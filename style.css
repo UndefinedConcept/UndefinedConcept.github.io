@@ -3,11 +3,12 @@ Base CSS
 *********************************************************/
 :root {
   /* [Var] Color Palette (Black-Gray-Orange) */
-  --background-color: #343332;
-  --base-color-1: #fbfaf9;
-  --base-color-2: #c5c4c3;
-  --accent-color: #ed882a;
-  --accent-color-grad: #ffe100;
+  --background-color: #292827;
+  --base-color-1: #d3cfc5;
+  --base-color-2: #a9a18e;
+  --accent-color: #f2870d;
+  --accent-color-grad: #e0bb06;
+  --glow-color: hsla(42 90% 48% / 0.5);
   /* [Var] Text (Minor Third 1.2 Scale Ratio) */
   --text-size-sm: 0.83rem;
   --text-size-md: 1rem;
@@ -68,6 +69,8 @@ a:hover, .btn:hover {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* removable glow effect */
+  text-shadow: var(--glow-color) 0 0 4px;
 }
 .grad {
   background: linear-gradient(45deg, var(--accent-color) 0%, var(--accent-color-grad) 100%);
@@ -75,6 +78,8 @@ a:hover, .btn:hover {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* removable glow effect */
+  text-shadow: var(--glow-color) 0 0 4px;
 }
 /*********************************************************
 Sections
