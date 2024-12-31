@@ -2,4 +2,4 @@
 *.log
 
 # ignore testing files
-testing.html
+test/
