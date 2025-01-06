@@ -1,12 +1,12 @@
-/*********************************************************
-Base CSS
-*********************************************************/
+/***************************************************************
+Base CSS =======================================================
+***************************************************************/
 :root {
   /* [Var] Color Palette (Black-Gray-Orange) */
   --background-color: #292827;
   --base-color-1: #d3cfc5;
   --base-color-2: #a9a18e;
-  --accent-color: rgb(233, 166, 12);
+  --accent-color: #e9a60c;
   --accent-grad-1: #f2870d;
   --accent-grad-2: #e0bb06;
   --accent-glow: rgba(233, 166, 12, 0.5);
@@ -14,69 +14,91 @@ Base CSS
   --text-size-sm: 0.8rem;
   --text-size-md: 1rem;
   --text-size-lg: 1.2rem;
-  --text-size-3xl: 2rem;
+  --text-size-title: 2.5rem;
   /* [Fixed] Font (Inter Best Font) */
   font-family: Inter, sans-serif;
-  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
-}
-@supports (font-variation-settings: normal) {
-  :root { font-family: InterVariable, sans-serif; }
+  font-feature-settings: "liga" 1, "calt" 1;
+  /* fix for Chrome */
 }
 
-/* Base Styles */
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
+/* Html Body and Base Background */
 body {
-  min-width: 320px;
-  max-width: 1200px;
   background-color: var(--background-color);
   color: var(--base-color-2);
   font-size: var(--text-size-md);
   line-height: 1.5;
-  margin: auto;
-  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 352px) and (min-height: 1024px) {
+
+  /* Scale up for large screen screen */
+  /* (min-width for layout) 320px * 1.1 = 352px */
+  :root {
+    font-size: 1.1rem;
+  }
 }
 
 /* Headings */
 h1 {
-  font-size: var(--text-size-3xl);
+  font-size: var(--text-size-title);
   text-transform: capitalize;
-}
-h2 {
-  font-size: var(--text-size-lg);
-  text-transform: uppercase;
-}
-h3 {
-  font-size: var(--text-size-lg);
-  text-transform: capitalize;
-}
-
-/* Text Margin and Color */
-h1, h2, h3 {
-  margin: 0;
-  padding: 0.5rem 0;
+  margin: auto;
+  margin-top: -0.25rem;
   color: var(--base-color-1);
   font-weight: bold;
 }
+
+h2 {
+  font-size: var(--text-size-lg);
+  text-transform: uppercase;
+  margin: auto;
+  padding: 0.25rem 0;
+  color: var(--base-color-1);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: var(--text-size-lg);
+  text-transform: capitalize;
+  margin: auto;
+  padding: 0 0 0.25rem 0;
+  color: var(--base-color-1);
+  font-weight: bold;
+}
+
+/* Text Margin and Color */
 p {
-  margin: 0;
-  padding: 0 0 0.5rem 0;
+  margin: 0 auto;
+  padding: 0 0 0.5em 0;
   color: var(--base-color-2);
 }
-a, .btn  {
+
+a,
+.btn {
   color: var(--base-color-1);
   font-weight: bold;
   text-decoration: none;
 }
-a:hover, .btn:hover {
-  background: linear-gradient(45deg, var(--accent-grad-1) 0%, var(--accent-grad-2) 100%);
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+a:hover,
+.btn:hover {
+  /* single color only (for performance and contact icons) */
+  color: var(--accent-color);
   /* removable glow effect */
   text-shadow: var(--accent-glow) 0 0 0.25rem;
 }
+
 .grad {
-  background: linear-gradient(45deg, var(--accent-grad-1) 0%, var(--accent-grad-2) 100%);
+  background: linear-gradient(45deg,
+      var(--accent-grad-1) 0%,
+      var(--accent-grad-2) 100%);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
@@ -84,22 +106,148 @@ a:hover, .btn:hover {
   /* removable glow effect */
   text-shadow: var(--accent-glow) 0 0 0.25rem;
 }
-/*********************************************************
-Sections
-*********************************************************/
+
+/***************************************************************
+[<1000px] Layout: Page Design (Main) ===========================
+***************************************************************/
+.layout {
+  min-width: 320px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+header {
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header nav {
+  padding: 1rem 0;
+  display: none;
+}
+
 section {
-  padding: 0.5rem 0;
+  padding: 0 0 2rem;
 }
-footer {
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 1rem 1.5rem;
+
+.paddedContent {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
-section .header {
+
+section .sticky-top {
   position: sticky;
   top: 0;
-  padding: 0 1.5rem;
-  backdrop-filter: blur(24px);
+  backdrop-filter: blur(1rem);
 }
-section .body {
-  padding: 0 1.5rem;
+
+@supports not(backdrop-filter: blur(1rem)) {
+  section .sticky-top {
+    background-color: var(--background-color);
+  }
+}
+
+/***************************************************************
+Shimmering Contact Icons
+***************************************************************/
+.contact-icons {
+  list-style-type: none;
+  margin-top: 1rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.contact-icons li {
+  margin-right: 2rem;
+}
+
+.contact-icons li a {
+  position: relative;
+  display: block;
+  height: 3rem;
+  min-width: 2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0.5rem var(--base-color-1);
+}
+
+.contact-icons li a:hover {
+  background: linear-gradient(-45deg,
+      var(--background-color) 40%,
+      #333 50%,
+      var(--background-color) 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: fx-shimmer 2s infinite linear;
+  box-shadow: 0 0 0.5rem var(--accent-color);
+}
+
+@keyframes fx-shimmer {
+  to {
+    background-position-x: 0%;
+  }
+}
+
+/***************************************************************
+[>1000px] Layout: Split-Screen Design ==========================
+***************************************************************/
+@media all and (min-width: 1000px) {
+  .layout {
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100vh;
+  }
+
+  header {
+    padding: 3rem 0.5rem 3rem 1.5rem;
+  }
+
+  header nav {
+    display: block;
+  }
+
+  main {
+    padding: 3rem 1.5rem 3rem 0.5rem;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+  }
+
+  main::-webkit-scrollbar {
+    display: none;
+    /* for Chrome, Safari, and Opera */
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  section {
+    padding: 0 0 2rem;
+  }
+
+  section .sticky-top {
+    display: none;
+  }
+
+  main>section:last-child {
+    padding-bottom: 0;
+  }
+
+  /*************************************************************
+  [>1000px] Sections Stuff
+  *************************************************************/
 }
