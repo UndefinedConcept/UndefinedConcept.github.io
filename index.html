@@ -20,9 +20,9 @@
           I explore with various coding concepts on the wide web.
         </p>
         <nav>
-          <li><a href="#About">About</a></li>
-          <li><a href="#Education">Education</a></li>
-          <li><a href="#Experience">Experience</a></li>
+          <a href="#About">About</a>
+          <a href="#Education">Education</a>
+          <a href="#Experience">Experience</a>
         </nav>
       </div>
       <ul class="paddedContent contact-icons">
@@ -158,7 +158,7 @@
           temporibus accusantium eaque.
         </div>
       </section>
-      <section id="footer" class="paddedContent">
+      <footer class="paddedContent">
         <p style="padding-bottom: 0">
           Currently using
           <a href="https://loremipsum.io/">Lorem Ipsum Text</a> as placeholders.
@@ -172,7 +172,34 @@
           All text is set in the
           <a href="https://rsms.me/inter/">Inter</a> typeface.
         </p>
-      </section>
+      </footer>
     </main>
   </body>
+  <script>
+    // Script for the reactive table of contents/nav.
+    const sections = document.querySelectorAll("section[id]");
+    window.addEventListener("scroll", navHighlighter);
+
+    function navHighlighter() {
+      // Get current scroll position
+      let scrollY = window.pageYOffset;
+
+      sections.forEach((current) => {
+        const sectionHeight = current.offsetHeight;
+        // Subtract by the shortest section height (normally the last one)
+        const sectionTop = current.offsetTop-400;
+        sectionId = current.getAttribute("id");
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          document
+            .querySelector("header nav a[href*=" + sectionId + "]")
+            .classList.add("active");
+        } else {
+          document
+            .querySelector("header nav a[href*=" + sectionId + "]")
+            .classList.remove("active");
+        }
+      });
+    }
+  </script>
 </html>

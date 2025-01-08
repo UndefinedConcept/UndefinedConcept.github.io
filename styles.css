@@ -80,10 +80,10 @@ p {
   color: var(--base-color-2);
 }
 
+/* Links and Stuff */
 a,
 .btn {
   color: var(--base-color-1);
-  font-weight: bold;
   text-decoration: none;
 }
 
@@ -107,6 +107,18 @@ a:hover,
   text-shadow: var(--accent-glow) 0 0 0.25rem;
 }
 
+nav .active {
+  font-weight: bold;
+  background: linear-gradient(45deg,
+      var(--accent-grad-1) 0%,
+      var(--accent-grad-2) 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* removable glow effect */
+  text-shadow: var(--accent-glow) 0 0 0.25rem;
+}
 /***************************************************************
 [<1000px] Layout: Page Design (Main) ===========================
 ***************************************************************/
@@ -204,26 +216,25 @@ Shimmering Contact Icons
 @media all and (min-width: 1000px) {
   .layout {
     max-width: 1300px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 100vh;
   }
 
   header {
     padding: 3rem 0.5rem 3rem 1.5rem;
+    position: fixed;
+    max-width: 49%;
+    /* 100vh - (padding-top + padding-bottom) */
+    height: calc(100vh - 6rem);
   }
 
   header nav {
     display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   main {
     padding: 3rem 1.5rem 3rem 0.5rem;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    /* for Internet Explorer, Edge */
-    scrollbar-width: none;
-    /* for Firefox */
+    margin-left: 50%;
   }
 
   main::-webkit-scrollbar {
