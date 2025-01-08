@@ -28,7 +28,8 @@ Base CSS =======================================================
 }
 
 /* Html Body and Base Background */
-body {
+html {
+  scroll-behavior: smooth;
   background-color: var(--background-color);
   color: var(--base-color-2);
   font-size: var(--text-size-md);
@@ -106,18 +107,18 @@ a:hover,
   /* removable glow effect */
   text-shadow: var(--accent-glow) 0 0 0.25rem;
 }
-
+nav a {
+  transition: 1s;
+}
 nav .active {
   font-weight: bold;
-  background: linear-gradient(45deg,
-      var(--accent-grad-1) 0%,
-      var(--accent-grad-2) 100%);
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* removable glow effect */
+  color: var(--accent-color);
   text-shadow: var(--accent-glow) 0 0 0.25rem;
+  transition: 0.7s;
+}
+nav .active::before {
+  font-weight: normal;
+  content: "➜ ";
 }
 /***************************************************************
 [<1000px] Layout: Page Design (Main) ===========================
