@@ -107,18 +107,7 @@ a:hover,
   /* removable glow effect */
   text-shadow: var(--accent-glow) 0 0 0.25rem;
 }
-nav a {
-  transition: 1s;
-}
-nav .active {
-  color: var(--accent-color);
-  text-shadow: var(--accent-glow) 0 0 0.25rem;
-  transition: 0.7s;
-}
-nav .active::before {
-  font-weight: normal;
-  content: "➜ ";
-}
+
 /***************************************************************
 [<1000px] Layout: Page Design (Main) ===========================
 ***************************************************************/
@@ -137,11 +126,6 @@ header {
   justify-content: space-between;
 }
 
-header nav {
-  padding: 1rem 0;
-  display: none;
-}
-
 section {
   padding: 0 0 1rem;
 }
@@ -152,7 +136,7 @@ section .sticky-top {
   backdrop-filter: blur(1rem);
 }
 
-@supports not(backdrop-filter: blur(1rem)) {
+@supports not (backdrop-filter: blur(1rem)) {
   section .sticky-top {
     background-color: var(--background-color);
   }
@@ -170,21 +154,55 @@ Cards and Section Padding
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
 .card {
   padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
 }
-.card p{
+
+.card p {
   padding: 0;
 }
-.card:hover{
+
+.card:hover {
   box-shadow: inset 0 0 0.5rem var(--base-color-2);
 }
+
 .cardSpotlight:hover {
   color: gray;
 }
+
 .card:hover {
   color: var(--base-color-2);
+}
+
+/***************************************************************
+Navigation Bar
+***************************************************************/
+@media all and (max-width: 1000px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: fit-content;
+    height: 0;
+    position: fixed;
+  }
+}
+
+nav a {
+  transition: 0.7s;
+}
+
+nav .active {
+  color: var(--accent-color);
+  text-shadow: var(--accent-glow) 0 0 0.25rem;
+  transition: 0.7s;
+}
+
+nav .active::before {
+  font-weight: normal;
+  content: "➜ ";
 }
 
 /***************************************************************
@@ -250,10 +268,11 @@ Shimmering Contact Icons
     height: calc(100vh - 6rem);
   }
 
-  header nav {
-    display: block;
+  nav {
     display: flex;
     flex-direction: column;
+    position: relative;
+    padding: 1rem 0;
   }
 
   main {
