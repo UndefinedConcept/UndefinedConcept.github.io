@@ -16,7 +16,7 @@
       <div class="paddedLeftRight">
         <h1><span class="grad">Jimmy Zhang</span></h1>
         <p style="color: var(--base-color-1)">Coding Enthusiast</p>
-        <p style="max-width: 19em; padding-right: 2.5em; margin-left: 0">
+        <p style="max-width: 19em; padding-right: 2.5em;">
           I explore with various coding concepts on the wide web.
         </p>
         <nav>
@@ -211,12 +211,12 @@
 
     function navHighlighter() {
       // Get current scroll position
-      let scrollY = window.pageYOffset;
+      let scrollY = window.pageYOffset + 200;
 
       sections.forEach((current) => {
         const sectionHeight = current.offsetHeight;
         // Subtract by the shortest section height (normally the last one)
-        const sectionTop = current.offsetTop - 400;
+        const sectionTop = current.offsetTop;
         sectionId = current.getAttribute("id");
 
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {

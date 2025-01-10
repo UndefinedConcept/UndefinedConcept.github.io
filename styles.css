@@ -113,17 +113,22 @@ a:hover,
 ***************************************************************/
 .layout {
   min-width: 320px;
-  max-width: 900px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 }
 
 header {
-  padding: 3rem 0;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-between;
+  padding: 3rem 0;
+  align-items: end;
+}
+
+footer {
+  padding-bottom: 2rem;
 }
 
 section {
@@ -179,15 +184,11 @@ Cards and Section Padding
 /***************************************************************
 Navigation Bar
 ***************************************************************/
-@media all and (max-width: 1000px) {
-  nav {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    width: fit-content;
-    height: 0;
-    position: fixed;
-  }
+nav {
+  display: none;
+  font-size: var(--text-size-lg);
+  text-transform: uppercase;
+  line-height: 1.75;
 }
 
 nav a {
@@ -201,7 +202,6 @@ nav .active {
 }
 
 nav .active::before {
-  font-weight: normal;
   content: "➜ ";
 }
 
@@ -235,6 +235,10 @@ Shimmering Contact Icons
   box-shadow: 0 0 0.5rem var(--base-color-1);
 }
 
+.contact-icons li:last-child {
+  margin-right: 0;
+}
+
 .contact-icons li a:hover {
   background: linear-gradient(-45deg,
       var(--background-color) 40%,
@@ -253,19 +257,32 @@ Shimmering Contact Icons
 }
 
 /***************************************************************
-[>1000px] Layout: Split-Screen Design ==========================
+[>=1000px] Layout: Split-Screen Design ==========================
 ***************************************************************/
-@media all and (min-width: 1000px) {
+@media all and (width >=1000px) {
   .layout {
     max-width: 1300px;
   }
 
   header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: nowrap;
     padding: 3rem 0.5rem 3rem 1.5rem;
     position: fixed;
-    max-width: 49%;
+    max-width: 45%;
     /* 100vh - (padding-top + padding-bottom) */
     height: calc(100vh - 6rem);
+    align-items: baseline;
+    /* Hides header scrollbar */
+    overflow-y: scroll;
+    overflow: -moz-scrollbars-none;
+  }
+
+  header::-webkit-scrollbar {
+    display: none;
+    /* Hides the scrollbar */
   }
 
   nav {
@@ -277,7 +294,7 @@ Shimmering Contact Icons
 
   main {
     padding: 3rem 1.5rem 3rem 0.5rem;
-    margin-left: 50%;
+    margin-left: 45%;
   }
 
   main::-webkit-scrollbar {
@@ -297,7 +314,7 @@ Shimmering Contact Icons
     display: none;
   }
 
-  main>section:last-child {
+  footer {
     padding-bottom: 0;
   }
 
