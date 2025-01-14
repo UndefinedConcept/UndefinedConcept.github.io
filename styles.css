@@ -282,7 +282,7 @@ Scroll Up Button
     flex-wrap: nowrap;
     padding: 3rem 0.5rem 3rem 1.5rem;
     position: fixed;
-    max-width: 45%;
+    max-width: 46%;
     /* 100vh - (padding-top + padding-bottom) */
     height: calc(100vh - 6rem);
     align-items: baseline;
@@ -305,7 +305,7 @@ Scroll Up Button
 
   main {
     padding: 3rem 1.5rem 3rem 0.5rem;
-    margin-left: 45%;
+    margin-left: 46%;
   }
 
   main::-webkit-scrollbar {
