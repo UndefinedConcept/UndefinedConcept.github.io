@@ -7,9 +7,8 @@ Base CSS =======================================================
   --base-color-1: #d3cfc5;
   --base-color-2: #a9a18e;
   --accent-color: #e9a60c;
-  --accent-grad-1: #f2870d;
+  --accent-grad-1: #f6870d;
   --accent-grad-2: #e0bb06;
-  --accent-glow: rgba(233, 166, 12, 0.5);
   /* [Var] Text (Minor Third 1.2 Scale Rounded Ratio) */
   --text-size-sm: 0.8rem;
   --text-size-md: 1rem;
@@ -43,8 +42,15 @@ h1 {
   text-transform: capitalize;
   margin: auto;
   margin-top: -0.25rem;
-  color: var(--base-color-1);
   font-weight: bold;
+  background: linear-gradient(45deg,
+      var(--accent-grad-1) 0%,
+      var(--accent-grad-2) 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 0.2rem var(--accent-grad-1));
 }
 
 h2 {
@@ -83,20 +89,6 @@ a:hover,
 .btn:hover {
   /* single color only (for performance and contact icons) */
   color: var(--accent-color);
-  /* removable glow effect */
-  text-shadow: var(--accent-glow) 0 0 0.25rem;
-}
-
-.grad {
-  background: linear-gradient(45deg,
-      var(--accent-grad-1) 0%,
-      var(--accent-grad-2) 100%);
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* removable glow effect */
-  text-shadow: var(--accent-glow) 0 0 0.25rem;
 }
 
 /***************************************************************
@@ -152,7 +144,6 @@ nav {
 
 nav .active {
   color: var(--accent-color);
-  text-shadow: var(--accent-glow) 0 0 0.25rem;
 }
 
 nav .active::before {
@@ -195,9 +186,9 @@ Shimmering Contact Icons
 
 .contact-icons li a:hover {
   background: linear-gradient(-45deg,
-      var(--background-color) 40%,
-      #333 50%,
-      var(--background-color) 60%);
+      transparent 40%,
+      hsla(0, 0%, 80%, 0.1) 50%,
+      transparent 60%);
   background-size: 300%;
   background-position-x: 100%;
   animation: fx-shimmer 2s infinite linear;
@@ -224,8 +215,11 @@ Cards and Section Padding
 }
 
 .card {
-  padding: 0.75rem 0.8rem;
+  position: relative;
+  padding: 0.65rem 0.8rem;
+  margin: 0.1rem;
   border-radius: 0.5rem;
+  border-top: 0.1rem solid transparent;
 }
 
 .card p {
@@ -233,29 +227,43 @@ Cards and Section Padding
 }
 
 .card:hover {
-  box-shadow: inset 0 0 0.5rem var(--base-color-2);
+  color: var(--base-color-2);
+  background: hsla(0, 0%, 80%, 0.1);
+  border-top-color: hsl(0, 0%, 40%);
 }
 
 .cardSpotlight:hover {
-  color: gray;
-}
-
-.card:hover {
-  color: var(--base-color-2);
+  color: hsl(43, 14%, 55%);
 }
 
 /***************************************************************
-Scroll Up Button
+Scroll Up Button (Javascript Depended)
 ***************************************************************/
 #ScrollUpBtn {
   overflow: hidden;
   position: fixed;
   align-self: end;
-  height: 0;  /*if no script, it will not appear */
+  height: 0;
+  /*if no script, it will not appear */
   bottom: 1rem;
-  margin-right: 0.5rem; /*based on section padding and margin*/
+  margin-right: 0.5rem;
+  /*based on section padding and margin*/
   z-index: 1;
   transition: height 0.5s;
+}
+
+/***************************************************************
+Scroll Up Button (Javascript Depended)
+***************************************************************/
+.glow-mouse {
+  display: none;
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 145, 0, 0.15) 0%, rgb(41, 40, 39, 0) 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 /***************************************************************

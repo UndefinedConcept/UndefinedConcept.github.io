@@ -12,6 +12,7 @@
   </head>
 
   <body class="layout">
+    <div class="glow-mouse"></div>
     <a id="ScrollUpBtn" href="#">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +32,7 @@
     </a>
     <header>
       <div class="paddedLeftRight">
-        <h1><span class="grad">Jimmy Zhang</span></h1>
+        <h1>Jimmy Zhang</h1>
         <p style="color: var(--base-color-1)">Coding Enthusiast</p>
         <p style="max-width: 19em; padding-right: 2.5em; margin-left: 0">
           I explore with various coding concepts on the wide web.
@@ -234,7 +235,11 @@
         const sectionTop = current.offsetTop - 400;
         const sectionId = current.getAttribute("id");
 
-        if (!(sectionId == "footer") && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        if (
+          !(sectionId == "footer") &&
+          scrollY > sectionTop &&
+          scrollY <= sectionTop + sectionHeight
+        ) {
           document
             .querySelector(`header nav a[href*='${sectionId}']`)
             .classList.add("active");
@@ -249,6 +254,13 @@
         document.body.scrollTop > 20 || document.documentElement.scrollTop > 20
           ? "1.2rem"
           : "0";
+    });
+
+    document.querySelector(".glow-mouse").style.display = 'block';
+    document.addEventListener("mousemove", function (e) {
+      const glowMouse = document.querySelector(".glow-mouse");
+      glowMouse.style.left = `${e.clientX-160}px`;
+      glowMouse.style.top = `${e.clientY-160}px`;
     });
   </script>
 </html>
