@@ -227,11 +227,11 @@
     const mybutton = document.getElementById("ScrollUpBtn");
 
     window.addEventListener("scroll", () => {
-      let scrollY = window.pageYOffset + 400;
+      let scrollY = window.pageYOffset + 500;
 
       sections.forEach((current) => {
         const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop;
+        const sectionTop = current.offsetTop - 100;
         const sectionId = current.getAttribute("id");
 
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
