@@ -187,7 +187,7 @@ Shimmering Contact Icons
 .contact-icons li a:hover {
   background: linear-gradient(-45deg,
       transparent 40%,
-      hsla(0, 0%, 80%, 0.1) 50%,
+      hsla(0, 0%, 50%, 0.2) 50%,
       transparent 60%);
   background-size: 300%;
   background-position-x: 100%;
@@ -228,8 +228,8 @@ Cards and Section Padding
 
 .card:hover {
   color: var(--base-color-2);
-  background: hsla(0, 0%, 80%, 0.1);
-  border-top-color: hsl(0, 0%, 40%);
+  background: hsla(0, 0%, 50%, 0.1);
+  border-top-color: hsl(0, 0%, 30%);
 }
 
 .cardSpotlight:hover {
@@ -237,7 +237,7 @@ Cards and Section Padding
 }
 
 /***************************************************************
-Scroll Up Button (Javascript Depended)
+Scroll Up Button (Javascript Depended) (<1000px)
 ***************************************************************/
 #ScrollUpBtn {
   overflow: hidden;
@@ -246,7 +246,7 @@ Scroll Up Button (Javascript Depended)
   height: 0;
   /*if no script, it will not appear */
   bottom: 1rem;
-  margin-right: 0.5rem;
+  margin-right: 0.6rem;
   /*based on section padding and margin*/
   z-index: 1;
   transition: height 0.5s;
@@ -261,7 +261,7 @@ Scroll Up Button (Javascript Depended)
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 145, 0, 0.15) 0%, rgb(41, 40, 39, 0) 70%);
+  background: radial-gradient(circle, rgba(255, 145, 0, 0.1) 0%, rgb(41, 40, 39, 0) 70%);
   pointer-events: none;
   z-index: -1;
 }
@@ -331,4 +331,7 @@ Scroll Up Button (Javascript Depended)
   /*************************************************************
   [>1000px] Sections Stuff
   *************************************************************/
+  #ScrollUpBtn {
+    margin-right: 0.75rem;
+  }
 }
