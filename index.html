@@ -13,7 +13,21 @@
 
   <body class="layout">
     <a id="ScrollUpBtn" href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="m4 11l8-8l8 8M4 21l8-8l8 8"/></svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1.2rem"
+        height="1.2rem"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="4"
+          d="m4 11l8-8l8 8M4 21l8-8l8 8"
+        />
+      </svg>
     </a>
     <header>
       <div class="paddedLeftRight">
@@ -208,47 +222,33 @@
     </main>
   </body>
   <script>
-    // Script for the reactive table of contents/nav.
+    // Script for the reactive table of contents/nav and Scroll Up Button
     const sections = document.querySelectorAll("section[id]");
-    window.addEventListener("scroll", navHighlighter);
+    const mybutton = document.getElementById("ScrollUpBtn");
 
-    function navHighlighter() {
-      // Get current scroll position
-      let scrollY = window.pageYOffset + 200;
+    window.addEventListener("scroll", () => {
+      let scrollY = window.pageYOffset + 400;
 
       sections.forEach((current) => {
         const sectionHeight = current.offsetHeight;
-        // Subtract by the shortest section height (normally the last one)
         const sectionTop = current.offsetTop;
-        sectionId = current.getAttribute("id");
+        const sectionId = current.getAttribute("id");
 
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
           document
-            .querySelector("header nav a[href*=" + sectionId + "]")
+            .querySelector(`header nav a[href*='${sectionId}']`)
             .classList.add("active");
         } else {
           document
-            .querySelector("header nav a[href*=" + sectionId + "]")
+            .querySelector(`header nav a[href*='${sectionId}']`)
             .classList.remove("active");
         }
       });
-    }
 
-    //Script for Scroll Up Button
-    let mybutton = document.getElementById("ScrollUpBtn");
-    window.onscroll = function () {
-      scrollFunction();
-    };
-
-    function scrollFunction() {
-      if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
-      ) {
-        mybutton.style.height = "1.2rem";
-      } else {
-        mybutton.style.height = "0";
-      }
-    }
+      mybutton.style.height =
+        document.body.scrollTop > 20 || document.documentElement.scrollTop > 20
+          ? "1.2rem"
+          : "0";
+    });
   </script>
 </html>

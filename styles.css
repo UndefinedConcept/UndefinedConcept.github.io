@@ -159,14 +159,9 @@ nav {
   line-height: 1.75;
 }
 
-nav a {
-  transition: 0.7s;
-}
-
 nav .active {
   color: var(--accent-color);
   text-shadow: var(--accent-glow) 0 0 0.25rem;
-  transition: 0.7s;
 }
 
 nav .active::before {
