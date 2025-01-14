@@ -12,11 +12,14 @@
   </head>
 
   <body class="layout">
+    <a id="ScrollUpBtn" href="#">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="m4 11l8-8l8 8M4 21l8-8l8 8"/></svg>
+    </a>
     <header>
       <div class="paddedLeftRight">
         <h1><span class="grad">Jimmy Zhang</span></h1>
         <p style="color: var(--base-color-1)">Coding Enthusiast</p>
-        <p style="max-width: 19em; padding-right: 2.5em;">
+        <p style="max-width: 19em; padding-right: 2.5em; margin-left: 0">
           I explore with various coding concepts on the wide web.
         </p>
         <nav>
@@ -229,6 +232,23 @@
             .classList.remove("active");
         }
       });
+    }
+
+    //Script for Scroll Up Button
+    let mybutton = document.getElementById("ScrollUpBtn");
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        mybutton.style.height = "1.2rem";
+      } else {
+        mybutton.style.height = "0";
+      }
     }
   </script>
 </html>
