@@ -37,15 +37,6 @@ html {
   margin: 0;
 }
 
-@media (min-width: 352px) and (min-height: 1024px) {
-
-  /* Scale up for large screen screen */
-  /* (min-width for layout) 320px * 1.1 = 352px */
-  :root {
-    font-size: 1.1rem;
-  }
-}
-
 /* Headings */
 h1 {
   font-size: var(--text-size-title);
@@ -130,7 +121,7 @@ header {
 }
 
 footer {
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 section {
@@ -282,7 +273,7 @@ Scroll Up Button
     flex-wrap: nowrap;
     padding: 3rem 0.5rem 3rem 1.5rem;
     position: fixed;
-    max-width: 46%;
+    max-width: 45%;
     /* 100vh - (padding-top + padding-bottom) */
     height: calc(100vh - 6rem);
     align-items: baseline;
@@ -305,7 +296,7 @@ Scroll Up Button
 
   main {
     padding: 3rem 1.5rem 3rem 0.5rem;
-    margin-left: 46%;
+    margin-left: 45%;
   }
 
   main::-webkit-scrollbar {
