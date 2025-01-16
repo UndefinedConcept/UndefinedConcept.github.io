@@ -12,24 +12,6 @@
   </head>
 
   <body class="layout">
-    <div class="glow-mouse"></div>
-    <a id="ScrollUpBtn" href="#">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1.2rem"
-        height="1.2rem"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="4"
-          d="m4 11l8-8l8 8M4 21l8-8l8 8"
-        />
-      </svg>
-    </a>
     <header>
       <div class="paddedLeftRight">
         <h1>Jimmy Zhang</h1>
@@ -221,6 +203,25 @@
         </p>
       </footer>
     </main>
+    <!-- Additional Elements for Javascript -->
+    <div class="glow-mouse"></div>
+    <a id="ScrollUpBtn" href="#">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1.2rem"
+        height="1.2rem"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="4"
+          d="m4 11l8-8l8 8M4 21l8-8l8 8"
+        />
+      </svg>
+    </a>
   </body>
   <script>
     // Script for the reactive table of contents/nav and Scroll Up Button
@@ -256,11 +257,11 @@
           : "0";
     });
 
-    document.querySelector(".glow-mouse").style.display = 'block';
+    document.querySelector(".glow-mouse").style.display = "block";
     document.addEventListener("mousemove", function (e) {
       const glowMouse = document.querySelector(".glow-mouse");
-      glowMouse.style.left = `${e.clientX-160}px`;
-      glowMouse.style.top = `${e.clientY-160}px`;
+      glowMouse.style.left = `${e.clientX - 160}px`;
+      glowMouse.style.top = `${e.clientY - 160}px`;
     });
   </script>
 </html>
