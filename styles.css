@@ -3,12 +3,12 @@ Base CSS =======================================================
 ***************************************************************/
 :root {
   /* [Var] Color Palette (Black-Gray-Orange) */
-  --background-color: #292827;
-  --base-color-1: #d3cfc5;
-  --base-color-2: #a9a18e;
-  --accent-color: #e9a60c;
-  --accent-grad-1: #f6870d;
-  --accent-grad-2: #e0bb06;
+  --background-color: hsl(42, 5%, 15%);
+  --base-color-1: hsl(42, 15%, 80%);
+  --base-color-2: hsl(42, 15%, 61%);
+  --accent-color: hsl(42, 90%, 45%);
+  --accent-grad-1: hsl(30, 90%, 50%);
+  --accent-grad-2: hsl(50, 90%, 50%);
   /* [Var] Text (Minor Third 1.2 Scale Rounded Ratio) */
   --text-size-sm: 0.8rem;
   --text-size-md: 1rem;
@@ -68,12 +68,13 @@ h3 {
   margin: auto;
   padding: 0 0 0.5rem 0;
   color: var(--base-color-1);
-  font-weight: bold;
+  font-weight: medium;
 }
 
 /* Text Margin and Color */
 p {
-  margin: 0 auto;
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 0.25rem 0 0.25rem 0;
 }
 
@@ -113,27 +114,29 @@ header {
 }
 
 footer {
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 
 section {
   padding-bottom: 1rem;
 }
 
-section .sticky-top {
+.sticky-top {
   position: sticky;
-  top: 0;
+  top: -0.1rem;
+  padding-top: 0.1rem;
   backdrop-filter: blur(1rem);
+  z-index: 1;
 }
 
 @supports not (backdrop-filter: blur(1rem)) {
-  section .sticky-top {
+  .sticky-top {
     background-color: var(--background-color);
   }
 }
 
 /***************************************************************
-Navigation Bar
+Navigation Bar (ALL <nav>) (>1000px)
 ***************************************************************/
 nav {
   display: none;
@@ -151,7 +154,7 @@ nav .active::before {
 }
 
 /***************************************************************
-Shimmering Contact Icons
+Shimmering Contact Icons (<ul> recommended)
 ***************************************************************/
 .contact-icons {
   list-style-type: none;
@@ -202,7 +205,7 @@ Shimmering Contact Icons
 }
 
 /***************************************************************
-Cards and Section Padding
+~ Cards and Section Padding (<div*><div><div**> recommended)====
 ***************************************************************/
 .paddedLeftRight {
   padding-left: 2rem;
@@ -214,7 +217,14 @@ Cards and Section Padding
   padding-right: 1.1rem;
 }
 
+/* Optional* */
+.cardSpotlight:hover {
+  color: hsl(43, 14%, 55%);
+}
+
 .card {
+  display: flex;
+  flex-direction: column;
   position: relative;
   padding: 0.65rem 0.8rem;
   margin: 0.1rem;
@@ -230,10 +240,29 @@ Cards and Section Padding
   color: var(--base-color-2);
   background: hsla(0, 0%, 50%, 0.1);
   border-top-color: hsl(0, 0%, 30%);
+  h3 {
+    color: var(--accent-color);
+  }
 }
 
-.cardSpotlight:hover {
-  color: hsl(43, 14%, 55%);
+
+
+/* Optional** */
+.card-pt-1 {
+  font-style: italic;
+}
+
+/* .card-pt-2 {} */
+
+@media ((width > 689px) and (width < 1000px)) or (width > 1200px) {
+  .card {
+    flex-direction: row;
+  }
+
+  .card-pt-1 {
+    min-width: 9rem;
+    padding-right: 1rem;
+  }
 }
 
 /***************************************************************
@@ -245,15 +274,15 @@ Scroll Up Button (Javascript Depended) (<1000px)
   align-self: end;
   height: 0;
   /*if no script, it will not appear */
-  bottom: 1rem;
+  bottom: 3rem;
   margin-right: 0.6rem;
   /*based on section padding and margin*/
-  z-index: 1;
+  z-index: 2;
   transition: height 0.5s;
 }
 
 /***************************************************************
-Scroll Up Button (Javascript Depended)
+Glowing-Mouse (Javascript Depended)
 ***************************************************************/
 .glow-mouse {
   display: none;
@@ -261,13 +290,13 @@ Scroll Up Button (Javascript Depended)
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 145, 0, 0.1) 0%, rgb(41, 40, 39, 0) 70%);
+  background: radial-gradient(circle, hsla(42, 90%, 50%, 5%) 0%, hsla(42, 80%, 50%, 0) 70%);
   pointer-events: none;
-  z-index: -1;
+  z-index: 1;
 }
 
 /***************************************************************
-[>=1000px] Layout: Split-Screen Design ==========================
+[>=1000px] Layout: Split-Screen Design =========================
 ***************************************************************/
 @media all and (width >=1000px) {
   .layout {
@@ -281,7 +310,7 @@ Scroll Up Button (Javascript Depended)
     flex-wrap: nowrap;
     padding: 3rem 0.5rem 3rem 1.5rem;
     position: fixed;
-    max-width: 45%;
+    max-width: 42%;
     /* 100vh - (padding-top + padding-bottom) */
     height: calc(100vh - 6rem);
     align-items: baseline;
@@ -304,7 +333,7 @@ Scroll Up Button (Javascript Depended)
 
   main {
     padding: 3rem 1.5rem 3rem 0.5rem;
-    margin-left: 45%;
+    margin-left: 42%;
   }
 
   main::-webkit-scrollbar {
@@ -320,7 +349,7 @@ Scroll Up Button (Javascript Depended)
     padding: 0 0 2rem;
   }
 
-  section .sticky-top {
+  .sticky-top {
     display: none;
   }
 
