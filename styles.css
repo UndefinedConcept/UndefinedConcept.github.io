@@ -153,11 +153,11 @@ nav {
   line-height: 1.75;
 }
 
-nav.active {
+nav .active {
   color: var(--accent-color);
 }
 
-nav.active::before {
+nav .active::before {
   content: "➜ ";
 }
 
