@@ -15,14 +15,14 @@ Base CSS =======================================================
   --text-size-lg: 1.2rem;
   --text-size-title: 2.5rem;
   /* [Fixed] Font (Inter Best Font) */
-  font-family: 'InterDisplay', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-feature-settings: "liga" 1, "calt" 1;
   /* fix for Chrome */
 }
 
 @supports (font-variation-settings: normal) {
   :root {
-    font-family: 'Inter var', sans-serif;
+    font-family: 'InterVariable', sans-serif;
   }
 }
 
@@ -68,7 +68,7 @@ h3 {
   margin: auto;
   padding: 0.25rem 0;
   color: var(--base-color-1);
-  font-weight: 500;
+  font-weight: bold;
 }
 
 /* Text Margin and Color */
