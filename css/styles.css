@@ -15,14 +15,14 @@ Base CSS =======================================================
   --text-size-lg: 1.2rem;
   --text-size-title: 2.5rem;
   /* [Fixed] Font (Inter Best Font) */
-  font-family: Inter, sans-serif;
+  font-family: 'InterDisplay', sans-serif;
   font-feature-settings: "liga" 1, "calt" 1;
   /* fix for Chrome */
 }
 
 @supports (font-variation-settings: normal) {
   :root {
-    font-family: InterVariable, sans-serif;
+    font-family: 'Inter var', sans-serif;
   }
 }
 
@@ -147,6 +147,7 @@ Navigation Bar (ALL <nav>) (>1000px)
 ***************************************************************/
 nav {
   display: none;
+  color: var(--base-color-1);
   font-size: var(--text-size-lg);
   font-weight: bold;
   text-transform: uppercase;
@@ -312,8 +313,8 @@ Glowing-Mouse (Javascript Depended)
 .glow-mouse {
   display: none;
   position: fixed;
-  width: 320px;
-  height: 320px;
+  width: 480px;
+  height: 480px;
   border-radius: 50%;
   background: radial-gradient(circle, hsla(42, 90%, 50%, 5%) 0%, hsla(42, 80%, 50%, 0) 70%);
   pointer-events: none;
