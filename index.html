@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jimmy Zhang</title>
+    <meta name="description" content="[Placeholder] This is my personal portfolio hosted on GitHub Pages. It is still a work-in-progress.">
     <!-- Font: Inter -->
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
@@ -14,20 +15,20 @@
   <body class="layout">
     <header>
       <div class="paddedLeftRight">
-        <h1>Jimmy Zhang</h1>
+        <h1><a href="#" tabIndex="-1">Jimmy Zhang</a></h1>
         <p style="color: var(--base-color-1)">Coding Enthusiast</p>
         <p style="max-width: 19em; padding-right: 2.5em; margin-left: 0">
           I explore with various coding concepts on the wide web.
         </p>
         <nav>
-          <a href="#About">About</a>
-          <a href="#Experience">Experience</a>
-          <a href="#Projects">Projects</a>
+          <a class="link" href="#About">About</a>
+          <a class="link" href="#Experience">Experience</a>
+          <a class="link" href="#Projects">Projects</a>
         </nav>
       </div>
       <ul class="paddedLeftRight contact-icons">
         <li>
-          <a href="">
+          <a class="link" href="">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="2rem"
@@ -42,7 +43,7 @@
           </a>
         </li>
         <li>
-          <a href="">
+          <a class="link" href="">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="2rem"
@@ -57,7 +58,7 @@
           </a>
         </li>
         <li>
-          <a href="">
+          <a class="link" href="">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="2rem"
@@ -114,7 +115,7 @@
         </div>
         <div class="paddedLeftRight-cardSection">
           <div class="card-wrapper">
-            <div class="card" tabindex="0">
+            <a role="button" class="card" tabindex="0">
               <div class="card-pt-1">
                 <p>July – Mon 2024</p>
               </div>
@@ -131,8 +132,8 @@
                   perferendis dolorem. Exercitationem, provident.
                 </p>
               </div>
-            </div>
-            <div class="card" tabindex="0">
+            </a>
+            <a role="button" class="card" tabindex="0">
               <div class="card-pt-1">
                 <p>July – Mon 2024</p>
               </div>
@@ -149,8 +150,8 @@
                   perferendis dolorem. Exercitationem, provident.
                 </p>
               </div>
-            </div>
-            <div class="card" tabindex="0">
+            </a>
+            <a role="button" class="card" tabindex="0">
               <div class="card-pt-1">
                 <p>July – Mon 2024</p>
               </div>
@@ -167,7 +168,7 @@
                   perferendis dolorem. Exercitationem, provident.
                 </p>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -208,16 +209,20 @@
       <footer class="paddedLeftRight">
         <p style="padding-bottom: 0">
           Currently using
-          <a href="https://loremipsum.io/">Lorem Ipsum Text</a> as placeholders.
-          Roughly planned in a notebook and coded in
-          <a href="https://code.visualstudio.com/">Visual Studio Code</a> by
-          yours truly. Built with
+          <a class="link" href="https://loremipsum.io/">Lorem Ipsum Text</a> as
+          placeholders. Roughly planned in a notebook and coded in
+          <a class="link" href="https://code.visualstudio.com/"
+            >Visual Studio Code</a
+          >
+          by yours truly. Built with
           <a
+            class="link"
             href="https://github.com/UndefinedConcept/UndefinedConcept.github.io"
             >vanilla HTML, CSS, and JS</a
-          >, deployed with <a href="https://pages.github.com/">GitHub Pages</a>.
-          All text is set in the
-          <a href="https://rsms.me/inter/">Inter</a> typeface.
+          >, deployed with
+          <a class="link" href="https://pages.github.com/">GitHub Pages</a>. All
+          text is set in the
+          <a class="link" href="https://rsms.me/inter/">Inter</a> typeface.
         </p>
       </footer>
     </main>
@@ -273,6 +278,12 @@
         document.body.scrollTop > 20 || document.documentElement.scrollTop > 20
           ? "1.2rem"
           : "0";
+    });
+
+    document.querySelectorAll('[tabindex="0"]').forEach((element) => {
+      element.addEventListener("focus", function () {
+        this.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
     });
 
     document.querySelector(".glow-mouse").style.display = "block";

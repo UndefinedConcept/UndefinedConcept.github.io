@@ -79,20 +79,22 @@ p {
 }
 
 /* Links and Stuff */
-a,
-.btn {
-  font-weight: bold;
-  color: var(--base-color-1);
+a {
+  color: inherit;
   text-decoration: none;
 }
 
-a:hover,
-.btn:hover {
+a.link {
+  color: var(--base-color-1);
+  font-weight: bold;
+}
+
+a:hover {
   /* single color only (for performance and contact icons) */
   color: var(--accent-color);
 }
 
-.workplace {
+span.workplace {
   font-style: italic;
   display: inline-block;
 }
@@ -146,22 +148,23 @@ Navigation Bar (ALL <nav>) (>1000px)
 nav {
   display: none;
   font-size: var(--text-size-lg);
+  font-weight: bold;
   text-transform: uppercase;
   line-height: 1.75;
 }
 
-nav .active {
+nav.active {
   color: var(--accent-color);
 }
 
-nav .active::before {
+nav.active::before {
   content: "➜ ";
 }
 
 /***************************************************************
 Shimmering Contact Icons (<ul> recommended)
 ***************************************************************/
-.contact-icons {
+ul.contact-icons {
   list-style-type: none;
   margin-top: 1rem;
   padding-bottom: 0;
@@ -170,11 +173,11 @@ Shimmering Contact Icons (<ul> recommended)
   flex-direction: row;
 }
 
-.contact-icons li {
+ul.contact-icons li {
   margin-right: 2rem;
 }
 
-.contact-icons li a {
+ul.contact-icons li a {
   position: relative;
   display: block;
   height: 3rem;
@@ -188,11 +191,11 @@ Shimmering Contact Icons (<ul> recommended)
   box-shadow: 0 0 0.5rem var(--base-color-1);
 }
 
-.contact-icons li:last-child {
+ul.contact-icons li:last-child {
   margin-right: 0;
 }
 
-.contact-icons li a:hover {
+ul.contact-icons li a:hover {
   background: linear-gradient(-45deg,
       transparent 40%,
       hsla(0, 0%, 50%, 0.2) 50%,
@@ -210,7 +213,7 @@ Shimmering Contact Icons (<ul> recommended)
 }
 
 /***************************************************************
-~ Cards and Section Padding (<div*><div><div**> recommended)====
+~ Cards and Section Padding (<div*><a><div**> recommended)====
 ***************************************************************/
 .paddedLeftRight {
   padding-left: 2rem;
@@ -223,57 +226,63 @@ Shimmering Contact Icons (<ul> recommended)
 }
 
 /* Optional* */
-.card-wrapper:hover, .card-wrapper:has(.card:focus) {
+div.card-wrapper:hover,
+div.card-wrapper:has(.card:focus) {
   color: hsl(43, 14%, 55%);
 }
 
-.card {
+/* <a role="button" class="card" tabIndex="0"> for focus*/
+/* <a class="card" href=""> for linked focus */
+a.card {
   display: flex;
   flex-direction: column;
   position: relative;
   padding: 0.5rem 0.8rem;
-  margin: 0.2rem;
+  margin: 0.1rem;
   border-radius: 0.5rem;
   border-top: 0.1rem solid transparent;
 }
 
-.card p {
+a.card p {
   padding: 0;
 }
 
-.card:hover, .card:focus {
+a.card:hover,
+a.card:focus {
   color: var(--base-color-2);
   background: hsla(0, 0%, 50%, 0.1);
   border-top-color: hsl(0, 0%, 30%);
-  outline: none;
+  outline: transparent;
+
   h3 {
     color: var(--accent-color);
   }
 }
 
 /* Only one card can have the glass-like hover/focus effect */
-.card-wrapper:has(.card:focus) .card:not(:focus):hover {
+div.card-wrapper:has(.card:focus) .card:not(:focus):hover {
   color: hsl(43, 14%, 55%);
   background: transparent;
   border-top-color: transparent;
+
   h3 {
     color: var(--base-color-1);
   }
 }
 
 /* Optional** */
-.card-pt-1 {
+div.card-pt-1 {
   font-style: italic;
 }
 
 /* .card-pt-2 {} */
 
 @media ((width > 689px) and (width < 1000px)) or (width > 1200px) {
-  .card {
+  a.card {
     flex-direction: row;
   }
 
-  .card-pt-1 {
+  div.card-pt-1 {
     min-width: 9rem;
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
