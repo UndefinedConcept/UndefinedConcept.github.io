@@ -16,7 +16,7 @@ Base CSS =======================================================
   --text-size-title: 2.5rem;
   /* [Fixed] Font (Inter Best Font) */
   font-family: 'Inter', sans-serif;
-  font-feature-settings: "liga" 1, "calt" 1;
+  font-feature-settings: "liga", "calt", "ss03", "cv02", "cv05", "cv11";
   /* fix for Chrome */
 }
 
