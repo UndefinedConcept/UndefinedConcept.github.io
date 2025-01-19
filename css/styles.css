@@ -7,27 +7,29 @@ Base CSS =======================================================
   --base-color-1: hsl(42, 15%, 80%);
   --base-color-2: hsl(42, 15%, 60%);
   --accent-color: hsl(42, 90%, 45%);
-  --accent-grad-1: hsl(30, 90%, 50%);
-  --accent-grad-2: hsl(50, 90%, 50%);
+  --accent-grad-1: hsl(25, 90%, 45%);
+  --accent-grad-2: hsl(50, 90%, 45%);
   /* [Var] Text (Minor Third 1.2 Scale Rounded Ratio) */
   --text-size-sm: 0.8rem;
   --text-size-md: 1rem;
   --text-size-lg: 1.2rem;
   --text-size-title: 2.5rem;
   /* [Fixed] Font (Inter Best Font) */
-  font-family: 'Inter', sans-serif;
-  font-feature-settings: "liga", "calt", "ss03", "cv02", "cv05", "cv11";
+  font-family: "Inter", sans-serif;
+  font-feature-settings: "calt", "ss03", "cv02", "cv05", "cv11";
   /* fix for Chrome */
 }
 
 @supports (font-variation-settings: normal) {
   :root {
-    font-family: 'InterVariable', sans-serif;
+    font-family: "InterVariable", sans-serif;
   }
 }
 
 /* Html Body and Base Background */
 html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--base-color-2) var(--background-color);
   scroll-behavior: smooth;
   background-color: var(--background-color);
   color: var(--base-color-2);
@@ -94,11 +96,6 @@ a:hover {
   color: var(--accent-color);
 }
 
-span.workplace {
-  font-style: italic;
-  display: inline-block;
-}
-
 /***************************************************************
 [<1000px] Layout: Page Design (Main) ===========================
 ***************************************************************/
@@ -121,11 +118,11 @@ header {
 }
 
 footer {
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
 }
 
 section {
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 
 .sticky-top {
@@ -251,7 +248,10 @@ a.card p {
 a.card:hover,
 a.card:focus {
   color: var(--base-color-2);
-  background: hsla(0, 0%, 50%, 0.1);
+  background: hsl(42, 5%, 18%);
+  background: linear-gradient(135deg,
+      hsl(42, 5%, 19%) 20%,
+      hsl(42, 5%, 17%) 80%);
   border-top-color: hsl(0, 0%, 30%);
   outline: transparent;
 
@@ -272,23 +272,34 @@ div.card-wrapper:has(.card:focus) .card:not(:focus):hover {
 }
 
 /* Optional** */
-div.card-pt-1 {
+div.card-time {
   font-style: italic;
 }
 
-/* .card-pt-2 {} */
+div.card-image img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* .card-text {} */
 
 @media ((width > 689px) and (width < 1000px)) or (width > 1200px) {
   a.card {
     flex-direction: row;
   }
 
-  div.card-pt-1 {
+  div.card-time, div.card-image {
     min-width: 9rem;
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
     padding-right: 1rem;
   }
+}
+
+span.workplace {
+  font-style: italic;
+  display: inline-block;
 }
 
 /***************************************************************
@@ -316,7 +327,9 @@ Glowing-Mouse (Javascript Depended)
   width: 480px;
   height: 480px;
   border-radius: 50%;
-  background: radial-gradient(circle, hsla(42, 90%, 50%, 5%) 0%, hsla(42, 80%, 50%, 0) 70%);
+  background: radial-gradient(circle,
+      hsla(42, 90%, 50%, 5%) 0%,
+      hsla(42, 80%, 50%, 0) 70%);
   pointer-events: none;
   z-index: 1;
 }
@@ -343,6 +356,7 @@ Glowing-Mouse (Javascript Depended)
     /* Hides header scrollbar */
     overflow-y: scroll;
     overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
   }
 
   header::-webkit-scrollbar {
@@ -358,7 +372,7 @@ Glowing-Mouse (Javascript Depended)
   }
 
   main {
-    padding: 3rem 1.5rem 3rem 0.5rem;
+    padding: 0 1.5rem 0 0.5rem;
     margin-left: 42%;
   }
 
@@ -372,7 +386,9 @@ Glowing-Mouse (Javascript Depended)
   }
 
   section {
-    padding: 0 0 2rem;
+    /* padding-top == header padding-top*/
+    padding-top: 3rem;
+    padding-bottom: 0;
   }
 
   .sticky-top {
@@ -380,7 +396,10 @@ Glowing-Mouse (Javascript Depended)
   }
 
   footer {
-    padding-bottom: 0;
+    /* padding-top == header padding-top*/
+    /* padding-bottom == header padding-bottom*/
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   /*************************************************************

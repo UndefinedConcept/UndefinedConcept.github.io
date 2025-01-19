@@ -1,6 +1,8 @@
 // Script for the reactive table of contents/nav and Scroll Up Button
 const sections = document.querySelectorAll("section[id]");
 
+// Nav Bar
+document.querySelector(`header nav a[href*='About']`).classList.add("active");
 window.addEventListener("scroll", () => {
   let scrollY = window.scrollY;
 
@@ -25,12 +27,14 @@ window.addEventListener("scroll", () => {
   });
 });
 
+// Tab Index Accessibility (centers focused element)
 document.querySelectorAll('[tabindex="0"]').forEach((element) => {
   element.addEventListener("focus", function () {
     this.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 });
 
+// Glowing Mouse
 document.querySelector(".glow-mouse").style.display = "block";
 document.addEventListener("mousemove", function (e) {
   const glowMouse = document.querySelector(".glow-mouse");
