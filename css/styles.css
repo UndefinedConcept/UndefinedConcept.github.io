@@ -129,7 +129,8 @@ section {
   position: sticky;
   top: -0.1rem;
   padding-top: 0.1rem;
-  backdrop-filter: blur(1rem);
+  background-color: hsla(42, 5%, 15%, 0.25);;
+  backdrop-filter: blur(0.5rem);
   z-index: 1;
 }
 
@@ -229,37 +230,6 @@ div.card-wrapper:has(.card:focus) {
   color: hsl(43, 14%, 55%);
 }
 
-/* <a role="button" class="card" tabIndex="0"> for focus*/
-/* <a class="card" href=""> for linked focus */
-a.card {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 0.5rem 0.8rem;
-  margin: 0.1rem;
-  border-radius: 0.5rem;
-  border-top: 0.1rem solid transparent;
-}
-
-a.card p {
-  padding: 0;
-}
-
-a.card:hover,
-a.card:focus {
-  color: var(--base-color-2);
-  background: hsl(42, 5%, 18%);
-  background: linear-gradient(135deg,
-      hsl(42, 5%, 19%) 20%,
-      hsl(42, 5%, 17%) 80%);
-  border-top-color: hsl(0, 0%, 30%);
-  outline: transparent;
-
-  h3 {
-    color: var(--accent-color);
-  }
-}
-
 /* Only one card can have the glass-like hover/focus effect */
 div.card-wrapper:has(.card:focus) .card:not(:focus):hover {
   color: hsl(43, 14%, 55%);
@@ -271,25 +241,68 @@ div.card-wrapper:has(.card:focus) .card:not(:focus):hover {
   }
 }
 
+div.card-wrapper:has(.card:focus) .card:has(.card-image):not(:focus):hover {
+  background-color: hsl(42, 5%, 17%);
+}
+
+/* <a role="button" class="card" tabIndex="0"> for focus*/
+/* <a class="card" href=""> for linked focus */
+a.card {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  position: relative;
+  padding: 0.5rem 0.8rem;
+  margin: 0.1rem;
+  border-radius: 0.5rem;
+  border-top: 0.1rem solid transparent;
+}
+
+a.card:has(.card-image) {
+  background-color: hsl(42, 5%, 18%);
+  padding: 0.8rem 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+a.card p {
+  padding: 0;
+}
+
+a.card:hover,
+a.card:focus {
+  color: var(--base-color-2);
+  background: hsl(42, 5%, 20%);
+  background: linear-gradient(135deg,
+      hsl(42, 5%, 21%) 20%,
+      hsl(42, 5%, 19%) 80%);
+  border-top-color: hsl(0, 0%, 30%);
+  outline: transparent;
+
+  h3 {
+    color: var(--accent-color);
+  }
+}
+
 /* Optional** */
 div.card-time {
   font-style: italic;
 }
 
-div.card-image img{
+div.card-image img {
   width: 100%;
   height: auto;
   object-fit: contain;
+  border-radius: 0.4rem;
 }
 
 /* .card-text {} */
 
 @media ((width > 689px) and (width < 1000px)) or (width > 1200px) {
-  a.card {
+  a.card:has(.card-time) {
     flex-direction: row;
   }
 
-  div.card-time, div.card-image {
+  div.card-time {
     min-width: 9rem;
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
@@ -298,8 +311,65 @@ div.card-image img{
 }
 
 span.workplace {
+  font-weight: 500;
   font-style: italic;
   display: inline-block;
+}
+
+span.label{
+  font-weight: 500;
+  font-style: italic;
+  padding: 0 0.75rem;
+  margin-left: 0.5rem;
+  display: inline-block;
+  color: var(--accent-color);
+  border: 0.1rem solid currentColor;
+  border-radius: 1rem;
+  box-shadow: currentColor 0 0 0.25rem;
+}
+
+span.label.red{
+  color:var(--accent-grad-1);
+}
+
+span.label.yellow{
+  color:var(--accent-grad-2);
+}
+
+ul.techStack {
+  list-style-type: none;
+  margin: 0;
+  padding: 0.5rem 0 0;
+}
+
+ul.techStack li {
+  font-size: var(--text-size-sm);
+  margin: 0 0.5rem 0.5rem 0;
+  color: var(--accent-color);
+  padding: 0 0.5rem;
+  display: inline-block;
+  border: 0.1rem solid currentColor;
+  border-radius: 1rem;
+  /* removable glow effect */
+  box-shadow: currentColor 0 0 0.25rem;
+}
+
+.card:focus ul.techStack {
+
+  li.langs,
+  .langs~li {
+    color: var(--accent-grad-1);
+  }
+
+  li.utils,
+  .utils~li {
+    color: var(--accent-color);
+  }
+
+  li.tools,
+  .tools~li {
+    color: var(--accent-grad-2);
+  }
 }
 
 /***************************************************************
