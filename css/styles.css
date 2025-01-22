@@ -7,7 +7,7 @@ Base CSS =======================================================
   --base-color-1: hsl(42, 15%, 80%);
   --base-color-2: hsl(42, 15%, 60%);
   --accent-color: hsl(42, 90%, 45%);
-  --accent-grad-1: hsl(25, 90%, 45%);
+  --accent-grad-1: hsl(25, 100%, 50%);
   --accent-grad-2: hsl(50, 90%, 45%);
   /* [Var] Text (Minor Third 1.2 Scale Rounded Ratio) */
   --text-size-sm: 0.8rem;

@@ -34,20 +34,16 @@ document.querySelectorAll('[tabindex="0"]').forEach((element) => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 });
 
-
 // Glowing Mouse
-document.querySelector(".glow-mouse").style.display = "block";
+const glowMouse = document.querySelector(".glow-mouse");
+glowMouse.style.display = "block";
 document.addEventListener("mousemove", function (e) {
-  const glowMouse = document.querySelector(".glow-mouse");
   glowMouse.style.left = `${e.clientX - 240}px`;
   glowMouse.style.top = `${e.clientY - 240}px`;
 });
