@@ -42,7 +42,7 @@ html {
 h1 {
   font-size: var(--text-size-title);
   text-transform: capitalize;
-  margin: auto;
+  margin: 0;
   margin-top: -0.25rem;
   font-weight: bold;
   background: linear-gradient(45deg,
@@ -58,7 +58,7 @@ h1 {
 h2 {
   font-size: var(--text-size-lg);
   text-transform: uppercase;
-  margin: auto;
+  margin: 0;
   padding: 0.5rem 0;
   color: var(--base-color-1);
   font-weight: bold;
@@ -67,7 +67,7 @@ h2 {
 h3 {
   font-size: var(--text-size-lg);
   text-transform: capitalize;
-  margin: auto;
+  margin: 0;
   padding: 0.25rem 0;
   color: var(--base-color-1);
   font-weight: bold;
@@ -91,7 +91,8 @@ a.link {
   font-weight: bold;
 }
 
-a:hover {
+a:hover,
+a:focus {
   /* single color only (for performance and contact icons) */
   color: var(--accent-color);
 }
@@ -129,9 +130,10 @@ section {
   position: sticky;
   top: -0.1rem;
   padding-top: 0.1rem;
-  background-color: hsla(42, 5%, 15%, 0.25);;
+  background-color: hsla(42, 5%, 15%, 0.25);
+  ;
   backdrop-filter: blur(0.5rem);
-  z-index: 1;
+  z-index: 3;
 }
 
 @supports not (backdrop-filter: blur(1rem)) {
@@ -226,12 +228,12 @@ ul.contact-icons li a:hover {
 
 /* Optional* */
 div.card-wrapper:hover,
-div.card-wrapper:has(.card:focus) {
+div.card-wrapper:has(.card:focus-within) {
   color: hsl(43, 14%, 55%);
 }
 
 /* Only one card can have the glass-like hover/focus effect */
-div.card-wrapper:has(.card:focus) .card:not(:focus):hover {
+div.card-wrapper:has(.card:focus-within) .card:has(.card-time):not(:focus-within):hover {
   color: hsl(43, 14%, 55%);
   background: transparent;
   border-top-color: transparent;
@@ -241,13 +243,16 @@ div.card-wrapper:has(.card:focus) .card:not(:focus):hover {
   }
 }
 
-div.card-wrapper:has(.card:focus) .card:has(.card-image):not(:focus):hover {
-  background-color: hsl(42, 5%, 17%);
+div.card-wrapper:has(.card:focus-within) .card:has(.card-image):not(:focus-within):hover {
+  color: hsl(43, 14%, 55%);
+  background: hsl(42, 5%, 18%);
+  border-top-color: transparent;
+  h3 {
+    color: var(--base-color-1);
+  }
 }
 
-/* <a role="button" class="card" tabIndex="0"> for focus*/
-/* <a class="card" href=""> for linked focus */
-a.card {
+.card {
   display: flex;
   flex-direction: column;
   background: transparent;
@@ -258,29 +263,67 @@ a.card {
   border-top: 0.1rem solid transparent;
 }
 
-a.card:has(.card-image) {
+.card:has(.card-image) {
   background-color: hsl(42, 5%, 18%);
   padding: 0.8rem 0.8rem;
   margin-bottom: 0.5rem;
 }
 
-a.card p {
+.card p {
   padding: 0;
 }
 
-a.card:hover,
-a.card:focus {
+.card:hover,
+.card:focus-within {
   color: var(--base-color-2);
   background: hsl(42, 5%, 20%);
   background: linear-gradient(135deg,
       hsl(42, 5%, 21%) 20%,
       hsl(42, 5%, 19%) 80%);
   border-top-color: hsl(0, 0%, 30%);
-  outline: transparent;
 
   h3 {
     color: var(--accent-color);
   }
+
+  ul.techStack {
+
+    li.langs,
+    .langs~li {
+      color: var(--accent-grad-2);
+    }
+
+    li.utils,
+    .utils~li {
+      color: var(--accent-color);
+    }
+
+    li.tools,
+    .tools~li {
+      color: var(--accent-grad-1);
+    }
+  }
+}
+
+.link-arrow {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0 -0.2rem -0.2rem;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6.343 17.657L17.657 6.343m0 0v8.485m0-8.485H9.172'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  transition: margin 0.25s;
+}
+
+a:hover .link-arrow,
+a:focus .link-arrow {
+  margin: -0.2rem -0.2rem 0 0;
 }
 
 /* Optional** */
@@ -288,17 +331,20 @@ div.card-time {
   font-style: italic;
 }
 
+div.card-image {
+  z-index: 2;
+}
+
 div.card-image img {
   width: 100%;
   height: auto;
   object-fit: contain;
   border-radius: 0.4rem;
+  z-index: 1;
 }
 
-/* .card-text {} */
-
 @media ((width > 689px) and (width < 1000px)) or (width > 1200px) {
-  a.card:has(.card-time) {
+  .card:has(.card-time) {
     flex-direction: row;
   }
 
@@ -316,7 +362,7 @@ span.workplace {
   display: inline-block;
 }
 
-span.label{
+span.label {
   font-weight: 500;
   font-style: italic;
   padding: 0 0.75rem;
@@ -328,12 +374,12 @@ span.label{
   box-shadow: currentColor 0 0 0.25rem;
 }
 
-span.label.red{
-  color:var(--accent-grad-1);
+span.label.red {
+  color: var(--accent-grad-1);
 }
 
-span.label.yellow{
-  color:var(--accent-grad-2);
+span.label.yellow {
+  color: var(--accent-grad-2);
 }
 
 ul.techStack {
@@ -352,40 +398,6 @@ ul.techStack li {
   border-radius: 1rem;
   /* removable glow effect */
   box-shadow: currentColor 0 0 0.25rem;
-}
-
-.card:focus ul.techStack {
-
-  li.langs,
-  .langs~li {
-    color: var(--accent-grad-1);
-  }
-
-  li.utils,
-  .utils~li {
-    color: var(--accent-color);
-  }
-
-  li.tools,
-  .tools~li {
-    color: var(--accent-grad-2);
-  }
-}
-
-/***************************************************************
-Scroll Up Button (Javascript Depended) (<1000px)
-***************************************************************/
-#ScrollUpBtn {
-  overflow: hidden;
-  position: fixed;
-  align-self: end;
-  height: 0;
-  /*if no script, it will not appear */
-  bottom: 3rem;
-  margin-right: 0.6rem;
-  /*based on section padding and margin*/
-  z-index: 2;
-  transition: height 0.5s;
 }
 
 /***************************************************************
