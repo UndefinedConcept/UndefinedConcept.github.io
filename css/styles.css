@@ -8,7 +8,7 @@ Base CSS =======================================================
   --base-color-2: hsl(42, 15%, 60%);
   --accent-color: hsl(42, 90%, 45%);
   --accent-grad-1: hsl(25, 100%, 50%);
-  --accent-grad-2: hsl(50, 90%, 45%);
+  --accent-grad-2: hsl(50, 100%, 45%);
   /* [Var] Text (Minor Third 1.2 Scale Rounded Ratio) */
   --text-size-sm: 0.8rem;
   --text-size-md: 1rem;
@@ -16,7 +16,7 @@ Base CSS =======================================================
   --text-size-title: 2.5rem;
   /* [Fixed] Font (Inter Best Font) */
   font-family: "Inter", sans-serif;
-  font-feature-settings: "calt", "ss03", "cv02", "cv05", "cv11";
+  font-feature-settings: "zero", "calt", "ss03", "cv02", "cv05", "cv11";
   /* fix for Chrome */
 }
 
@@ -45,7 +45,7 @@ h1 {
   margin: 0;
   margin-top: -0.25rem;
   font-weight: bold;
-  background: linear-gradient(45deg,
+  background: linear-gradient(90deg,
       var(--accent-grad-1) 0%,
       var(--accent-grad-2) 100%);
   color: transparent;
