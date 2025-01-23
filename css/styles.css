@@ -16,7 +16,7 @@ Base CSS =======================================================
   --text-size-title: 2.5rem;
   /* [Fixed] Font (Inter Best Font) */
   font-family: "Inter", sans-serif;
-  font-feature-settings: "zero", "calt", "ss03", "cv02", "cv05", "cv11";
+  font-feature-settings: "calt", "ss03", "cv02", "cv05", "cv11";
   /* fix for Chrome */
 }
 
@@ -64,7 +64,7 @@ h2 {
   font-weight: bold;
 }
 
-h3 {
+h3, .big-link {
   font-size: var(--text-size-lg);
   text-transform: capitalize;
   margin: 0;
@@ -198,9 +198,9 @@ ul.contact-icons li:last-child {
 
 ul.contact-icons li a:hover {
   background: linear-gradient(-45deg,
-      transparent 40%,
-      hsla(0, 0%, 50%, 0.2) 50%,
-      transparent 60%);
+      hsl(42, 5%, 15%) 40%,
+      hsl(42, 60%, 15%) 50%,
+      hsl(42, 5%, 15%) 60%);
   background-size: 300%;
   background-position-x: 100%;
   animation: fx-shimmer 2s infinite linear;
@@ -247,6 +247,7 @@ div.card-wrapper:has(.card:focus-within) .card:has(.card-image):not(:focus-withi
   color: hsl(43, 14%, 55%);
   background: hsl(42, 5%, 18%);
   border-top-color: transparent;
+
   h3 {
     color: var(--base-color-1);
   }
@@ -340,7 +341,6 @@ div.card-image img {
   height: auto;
   object-fit: contain;
   border-radius: 0.4rem;
-  z-index: 1;
 }
 
 @media ((width > 689px) and (width < 1000px)) or (width > 1200px) {
