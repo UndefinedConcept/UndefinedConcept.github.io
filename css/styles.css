@@ -64,7 +64,8 @@ h2 {
   font-weight: bold;
 }
 
-h3, .big-link {
+h3,
+.big-link {
   font-size: var(--text-size-lg);
   text-transform: capitalize;
   margin: 0;
@@ -77,7 +78,7 @@ h3, .big-link {
 p {
   margin-top: 0;
   margin-bottom: 0;
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
 }
 
 /* Links and Stuff */
@@ -211,6 +212,43 @@ ul.contact-icons li a:hover {
   to {
     background-position-x: 0%;
   }
+}
+
+/***************************************************************
+Skills Grid (<div><div>[<svg><p>] recommended)
+***************************************************************/
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: center; /* Center the content */
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.5rem;
+  border-top: 0.1rem solid transparent;
+  color: var(--base-color-2);
+  background: hsl(42, 5%, 18%);
+  font-size: 0.8rem;
+}
+
+.skill-item:hover {
+  border-top-color: hsl(0, 0%, 30%);
+  background: hsl(42, 5%, 20%);
+  background: linear-gradient(135deg,
+      hsl(42, 5%, 21%) 20%,
+      hsl(42, 5%, 19%) 80%);
+}
+
+.skill-item svg {
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-right: 0.8rem;
 }
 
 /***************************************************************
@@ -413,7 +451,7 @@ Glowing-Mouse (Javascript Depended)
       hsla(42, 90%, 50%, 5%) 0%,
       hsla(42, 80%, 50%, 0) 70%);
   pointer-events: none;
-  z-index: 1;
+  z-index: 10; /*or 1 if to not affect images*/
 }
 
 /***************************************************************
