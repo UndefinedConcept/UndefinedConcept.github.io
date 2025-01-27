@@ -17,7 +17,7 @@ Welcome to my personal portfolio site's repo! ✨ It is still under development 
 
 Feel free to explore and provide feedback! 💬
 
-## Acknowledgement 👏
+## Disclaimer ⚠️
 
 This website is a personal interpretation and implementation based on [Brittany Chiang's portfolio v5](https://brittanychiang.com/), rather than a direct clone. All coding and development were independently carried out by me, based on visual inspiration.
 
