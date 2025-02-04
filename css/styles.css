@@ -67,7 +67,6 @@ h2 {
 h3,
 .big-link {
   font-size: var(--text-size-lg);
-  text-transform: capitalize;
   margin: 0;
   padding: 0.25rem 0;
   color: var(--base-color-1);
@@ -508,7 +507,7 @@ Glowing-Mouse (Javascript Depended)
   section {
     /* padding-top == header padding-top*/
     padding-top: 3rem;
-    padding-bottom: 0;
+    padding-bottom: 0rem;
   }
 
   .sticky-top {

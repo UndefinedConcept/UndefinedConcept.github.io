@@ -13,7 +13,7 @@
     </p>   
 </div>
 
-Welcome to my personal portfolio site's repo! ✨ It is still under development and uses Lorem Ipsum as placeholders. It was heavily inspired by [Brittany Chiang's website v5](https://brittanychiang.com/). I'm continuously updating it with new content and improvements, so stay tuned for more!
+Welcome to my personal portfolio site's repo! ✨ It was heavily inspired by [Brittany Chiang's website v5](https://brittanychiang.com/). I'm continuously updating it with new content and improvements, so stay tuned for more!
 
 Feel free to explore and provide feedback! 💬
 
