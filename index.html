@@ -15,7 +15,7 @@
   <link rel="preload" href="/css/styles.css" as="style">
   <link rel="stylesheet" href="/css/styles.css" />
   <!-- Javascript only for accessibility -->
-  <script defer nomodule src="js/script.js"></script>
+  <script defer src="js/script.js"></script>
 </head>
 
 <body class="layout">
@@ -315,8 +315,11 @@
           <div class="card">
             <div class="card-image">
               <a href="/" tabindex="-1">
-                <img loading="lazy" decoding="async" width="640" height="350"
-                  src="assets/images/preview-portfolio(1-30-2025).png" alt="Preview of Portfolio as of 1-30-2025" />
+                <picture>
+                  <source srcset="assets/images/preview-portfolio(1-30-2025).webp" type="image/webp" />
+                  <img loading="lazy" decoding="async" width="640" height="350"
+                    src="assets/images/preview-portfolio(1-30-2025).png" alt="Preview of Research Practicum Presentation 2024" />
+                </picture>
               </a>
             </div>
             <div class="card-text">
@@ -343,8 +346,11 @@
           <div class="card" id="RP2024">
             <div class="card-image">
               <a href="/assets/rp-ssai-24.pdf" tabindex="-1">
-                <img loading="lazy" decoding="async" width="640" height="350" src="assets/images/preview-rp-ssai-24.png"
-                  alt="Preview of Research Practicum Presentation 2024" />
+                <picture>
+                  <source srcset="assets/images/preview-rp-ssai-24.webp" type="image/webp" />
+                  <img loading="lazy" decoding="async" width="640" height="350"
+                    src="assets/images/preview-rp-ssai-24.png" alt="Preview of Research Practicum Presentation 2024" />
+                </picture>
               </a>
             </div>
             <div class="card-text">
