@@ -5,13 +5,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jimmy Zhang</title>
-  <meta name="description"
-    content="[Placeholder] This is my personal portfolio hosted on GitHub Pages. It is still a work-in-progress." />
+  <meta name="description" content="Jimmy Zhang is a developer passionate about creating efficient algorithms that
+          simplify tasks into logical solutions." />
   <!-- Font: Inter -->
-  <link rel="preconnect" href="/" />
+  <link rel="preload" href="/fonts/InterVariable.woff2" as="font" crossorigin="" type="font/woff2">
+  <link rel="preload" href="/fonts/inter.css" />
   <link rel="stylesheet" href="/fonts/inter.css" />
   <!-- Main CSS Styles -->
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preload" href="/css/styles.css" as="style">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <!-- Javascript only for accessibility -->
+  <script defer nomodule src="js/script.js"></script>
 </head>
 
 <body class="layout">
@@ -91,13 +95,12 @@
           levels. Additionally, I have participated in several hackathons to
           connect with peers and expand my repertoire of skills.
         </p>
-
         <p>
           In my spare time, I enjoy reading novels, playing high-speed
           badminton, and catching up on some ZZZ.
         </p>
         <br />
-        <h3>Current Technologies</h3>
+        <p class="heading3">Current Technologies</p>
         <div class="skills-grid">
           <div class="skill-item">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 255">
@@ -312,8 +315,8 @@
           <div class="card">
             <div class="card-image">
               <a href="/" tabindex="-1">
-                <img loading="lazy" width="640" height="350" src="assets/images/preview-portfolio(1-30-2025).png"
-                  alt="Preview of Portfolio as of 1-30-2025" />
+                <img loading="lazy" decoding="async" width="640" height="350"
+                  src="assets/images/preview-portfolio(1-30-2025).png" alt="Preview of Portfolio as of 1-30-2025" />
               </a>
             </div>
             <div class="card-text">
@@ -340,7 +343,7 @@
           <div class="card" id="RP2024">
             <div class="card-image">
               <a href="/assets/rp-ssai-24.pdf" tabindex="-1">
-                <img loading="lazy" width="640" height="350" src="assets/images/preview-rp-ssai-24.png"
+                <img loading="lazy" decoding="async" width="640" height="350" src="assets/images/preview-rp-ssai-24.png"
                   alt="Preview of Research Practicum Presentation 2024" />
               </a>
             </div>
@@ -388,6 +391,5 @@
   <!-- Additional Elements for Javascript -->
   <div class="glow-mouse"></div>
 </body>
-<script src="js/script.js"></script>
 
 </html>
