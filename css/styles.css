@@ -30,6 +30,7 @@ Base CSS =======================================================
   background: #223d5b;
   color: #fff;
 }
+
 ::-moz-selection {
   background: #213e5e;
   color: #fff;
@@ -244,6 +245,8 @@ Skills Grid (<div><div>[<svg><p>] recommended)
   color: var(--base-color-2);
   background: hsl(42, 5%, 18%);
   font-size: 0.8rem;
+  transform: translateY(0);
+  transition: transform 0.3s ease-out;
 }
 
 .skill-item:hover {
@@ -252,6 +255,7 @@ Skills Grid (<div><div>[<svg><p>] recommended)
   background: linear-gradient(135deg,
       hsl(42, 5%, 21%) 20%,
       hsl(42, 5%, 19%) 80%);
+  transform: translateY(-0.2rem);
 }
 
 .skill-item svg {
@@ -306,9 +310,11 @@ div.card-wrapper:has(.card:focus-within) .card:has(.card-image):not(:focus-withi
   background: transparent;
   position: relative;
   padding: 0.5rem 0.8rem;
-  margin: 0.1rem;
+  margin: 0.2rem 0.1rem;
   border-radius: 0.5rem;
   border-top: 0.1rem solid transparent;
+  transform: translateY(0);
+  transition: transform 0.3s ease-out;
 }
 
 .card:has(.card-image) {
@@ -329,6 +335,7 @@ div.card-wrapper:has(.card:focus-within) .card:has(.card-image):not(:focus-withi
       hsl(42, 5%, 21%) 20%,
       hsl(42, 5%, 19%) 80%);
   border-top-color: hsl(0, 0%, 30%);
+  transform: translateY(-0.2rem);
 
   h3 {
     color: var(--accent-color);
@@ -537,5 +544,94 @@ Glowing-Mouse (Javascript Depended)
   *************************************************************/
   #ScrollUpBtn {
     margin-right: 0.75rem;
+  }
+}
+
+/***************************************************************
+[ALL] Loading Screen
+***************************************************************/
+#loading-screen {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOut 0.7s forwards;
+  animation-delay: 1.8s;
+  z-index: 5;
+}
+
+#loading-screen svg {
+  width: min(50vh, 50vw);
+}
+
+/* SVG animation styles */
+svg #dev-right {
+  opacity: 0;
+  animation: fadeInRight 1s forwards;
+  animation-delay: 0.5s;
+}
+
+svg #dev-left {
+  opacity: 0;
+  animation: fadeInLeft 1s forwards;
+  animation-delay: 0.5s;
+}
+
+svg #dev-slash {
+  stroke-dasharray: 236.8;
+  stroke-dashoffset: 236.8;
+  animation: drawSlash 1s forwards;
+  animation-delay: 0.5s;
+}
+
+svg #charJ-slash {
+  stroke-dasharray: 99;
+  stroke-dashoffset: 99;
+  animation: lineSlash 0.8s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes lineSlash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawSlash {
+  to {
+    stroke-dashoffset: 118.4;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
