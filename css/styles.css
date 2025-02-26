@@ -107,6 +107,14 @@ a:focus {
   color: var(--accent-color);
 }
 
+.readMore {
+  font-size: var(--text-size-lg);
+  margin: 0;
+  padding-top: 1.5rem;
+  color: var(--base-color-1);
+  font-weight: bold;
+}
+
 /***************************************************************
 [<1000px] Layout: Page Design (Main) ===========================
 ***************************************************************/
