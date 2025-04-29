@@ -2,22 +2,51 @@
 Base CSS =======================================================
 ***************************************************************/
 :root {
-  /* [Var] Color Palette (Black-Gray-Orange) */
+  /* [Var] Color Palette (Black-Gray-Orange) [--b* or --a*] */
   --background-color: hsl(42, 5%, 15%);
-  --base-color-1: hsl(42, 15%, 80%);
+  --base-color-1: hsl(42, 50%, 80%);
   --base-color-2: hsl(42, 15%, 60%);
-  --accent-color: hsl(42, 90%, 45%);
-  --accent-grad-1: hsl(25, 100%, 50%);
-  --accent-grad-2: hsl(50, 100%, 45%);
-  /* [Var] Text (Minor Third 1.2 Scale Rounded Ratio) */
+  --accent-color: hsl(42, 80%, 50%);
+  --accent-grad-1: hsl(10, 80%, 60%);
+  --accent-grad-2: hsl(50, 100%, 42%);
+  /* [Var] Specific Element Color [--c*] */
+  --custom-sticky-top: hsla(42, 5%, 15%, 0.25);
+  --custom-gradient-contact-icons: hsl(42, 60%, 15%);
+  --custom-mouse-glow-1: hsla(42, 90%, 50%, 5%);
+  --custom-mouse-glow-2: hsla(42, 80%, 50%, 0);
+  --card-background: hsl(42, 5%, 18%);
+  --card-background-grad-1: hsl(42, 5%, 21%);
+  --card-background-grad-2: hsl(42, 5%, 19%);
+  --card-hover-top-border: hsl(0, 0%, 30%);
+  --card-not-hover-text-color: hsl(43, 10%, 50%);
+  /* [Var] Text (Minor Third 1.2 Scale Rounded Ratio) [--t*] */
   --text-size-sm: 0.8rem;
   --text-size-md: 1rem;
   --text-size-lg: 1.2rem;
   --text-size-title: 2.5rem;
-  /* [Fixed] Font (Inter Best Font) */
+  /* [Fixed] Font (Inter Best Font)[--f*] */
   font-family: "Inter", sans-serif;
   font-feature-settings: "calt", "ss03", "cv02", "cv05", "cv11";
-  /* fix for Chrome */
+}
+
+.light-mode {
+  /* [Var] Color Palette (Black-Gray-Orange) [--b* or --a*] */
+  --background-color: hsl(50, 30%, 85%);
+  --base-color-1: hsl(100, 80%, 10%);
+  --base-color-2: hsl(0, 0%, 0%);
+  /* [Var] Specific Element Color [--c*] */
+  --accent-color: hsl(100, 60%, 40%);
+  --accent-grad-1: hsl(130, 60%, 35%);
+  --accent-grad-2: hsl(42, 60%, 40%);
+  --custom-sticky-top: hsla(42, 30%, 85%, 0.25);
+  --custom-gradient-contact-icons: hsl(100, 40%, 76%);
+  --custom-mouse-glow-1: hsla(100, 90%, 50%, 5%);
+  --custom-mouse-glow-2: hsla(100, 80%, 50%, 0);
+  --card-background: hsl(80, 35%, 75%);
+  --card-background-grad-1: hsl(80, 35%, 70%);
+  --card-background-grad-2: hsl(80, 40%, 70%);
+  --card-hover-top-border: hsl(78, 70%, 45%);
+  --card-not-hover-text-color: hsl(80, 40%, 30%);
 }
 
 @supports (font-variation-settings: normal) {
@@ -27,17 +56,17 @@ Base CSS =======================================================
 }
 
 ::selection {
-  background: #223d5b;
+  background: #305A88;
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #213e5e;
+  background: #305A88;
   color: #fff;
 }
 
 /* Html Body and Base Background */
-html {
+body {
   scrollbar-width: thin;
   scrollbar-color: var(--base-color-2) var(--background-color);
   scroll-behavior: smooth;
@@ -54,15 +83,15 @@ h1 {
   text-transform: capitalize;
   margin: 0;
   margin-top: -0.25rem;
-  font-weight: bold;
+  font-weight: 800;
   background: linear-gradient(90deg,
-      var(--accent-grad-1) 0%,
-      var(--accent-grad-2) 100%);
+      var(--accent-grad-1) 20%,
+      var(--accent-grad-2) 80%);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 0.2rem var(--accent-grad-1));
+  mix-blend-mode: normal;
 }
 
 h2 {
@@ -116,6 +145,57 @@ a:focus {
 }
 
 /***************************************************************
+[Theme] Switch for the theme ===================================
+***************************************************************/
+
+.switch {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem 0;
+
+  input {
+    display: none;
+  }
+
+  input:checked~.icon-wrapper {
+    .moon {
+      opacity: 0;
+      transform: rotate(360deg);
+    }
+
+    .sun {
+      opacity: 1;
+      transform: rotate(360deg);
+    }
+  }
+
+  input:not(checked)~.icon-wrapper {
+    .sun {
+      opacity: 0;
+    }
+
+    .moon {
+      opacity: 1;
+    }
+  }
+}
+
+.icon-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.icon-wrapper svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/***************************************************************
 [<1000px] Layout: Page Design (Main) ===========================
 ***************************************************************/
 .layout {
@@ -148,10 +228,12 @@ section {
   position: sticky;
   top: -0.1rem;
   padding-top: 0.1rem;
-  background-color: hsla(42, 5%, 15%, 0.25);
-  ;
+  background-color: var(--custom-sticky-top);
   backdrop-filter: blur(0.5rem);
   z-index: 3;
+  h2 {
+    text-shadow: 0 0 4px var(--custom-sticky-top);
+  }
 }
 
 @supports not (backdrop-filter: blur(1rem)) {
@@ -216,9 +298,9 @@ ul.contact-icons li:last-child {
 
 ul.contact-icons li a:hover {
   background: linear-gradient(-45deg,
-      hsl(42, 5%, 15%) 40%,
-      hsl(42, 60%, 15%) 50%,
-      hsl(42, 5%, 15%) 60%);
+      var(--background-color) 40%,
+      var(--custom-gradient-contact-icons) 50%,
+      var(--background-color) 60%);
   background-size: 300%;
   background-position-x: 100%;
   animation: fx-shimmer 2s infinite linear;
@@ -251,18 +333,18 @@ Skills Grid (<div><div>[<svg><p>] recommended)
   border-radius: 0.5rem;
   border-top: 0.1rem solid transparent;
   color: var(--base-color-2);
-  background: hsl(42, 5%, 18%);
+  background: var(--card-background);
   font-size: 0.8rem;
   transform: translateY(0);
   transition: transform 0.3s ease-out;
 }
 
 .skill-item:hover {
-  border-top-color: hsl(0, 0%, 30%);
-  background: hsl(42, 5%, 20%);
+  border-top-color: var(--card-hover-top-border);
+  background: var(--card-background);
   background: linear-gradient(135deg,
-      hsl(42, 5%, 21%) 20%,
-      hsl(42, 5%, 19%) 80%);
+      var(--card-background-grad-1) 20%,
+      var(--card-background-grad-2) 80%);
   transform: translateY(-0.2rem);
 }
 
@@ -288,12 +370,12 @@ Skills Grid (<div><div>[<svg><p>] recommended)
 /* Optional* */
 div.card-wrapper:hover,
 div.card-wrapper:has(.card:focus-within) {
-  color: hsl(43, 14%, 55%);
+  color: var(--card-not-hover-text-color);
 }
 
 /* Only one card can have the glass-like hover/focus effect */
 div.card-wrapper:has(.card:focus-within) .card:has(.card-time):not(:focus-within):hover {
-  color: hsl(43, 14%, 55%);
+  color: var(--card-not-hover-text-color);
   background: transparent;
   border-top-color: transparent;
 
@@ -303,8 +385,8 @@ div.card-wrapper:has(.card:focus-within) .card:has(.card-time):not(:focus-within
 }
 
 div.card-wrapper:has(.card:focus-within) .card:has(.card-image):not(:focus-within):hover {
-  color: hsl(43, 14%, 55%);
-  background: hsl(42, 5%, 18%);
+  color: var(--card-not-hover-text-color);
+  background: var(--card-background);
   border-top-color: transparent;
 
   h3 {
@@ -326,7 +408,7 @@ div.card-wrapper:has(.card:focus-within) .card:has(.card-image):not(:focus-withi
 }
 
 .card:has(.card-image) {
-  background-color: hsl(42, 5%, 18%);
+  background-color: var(--card-background);
   padding: 0.8rem 0.8rem;
   margin-bottom: 0.5rem;
 }
@@ -338,14 +420,14 @@ div.card-wrapper:has(.card:focus-within) .card:has(.card-image):not(:focus-withi
 .card:hover,
 .card:focus-within {
   color: var(--base-color-2);
-  background: hsl(42, 5%, 20%);
+  background: var(--card-background);
   background: linear-gradient(135deg,
-      hsl(42, 5%, 21%) 20%,
-      hsl(42, 5%, 19%) 80%);
-  border-top-color: hsl(0, 0%, 30%);
+      var(--card-background-grad-1) 20%,
+      var(--card-background-grad-2) 80%);
+  border-top-color: var(--card-hover-top-border);
   transform: translateY(-0.2rem);
 
-  h3 {
+  h3, .heading3 {
     color: var(--accent-color);
   }
 
@@ -472,8 +554,8 @@ Glowing-Mouse (Javascript Depended)
   height: 480px;
   border-radius: 50%;
   background: radial-gradient(circle,
-      hsla(42, 90%, 50%, 5%) 0%,
-      hsla(42, 80%, 50%, 0) 70%);
+      var(--custom-mouse-glow-1) 0%,
+      var(--custom-mouse-glow-2) 70%);
   pointer-events: none;
   z-index: 10;
   /*or 1 if to not affect images*/

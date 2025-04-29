@@ -26,6 +26,19 @@
     <a class="big-link" href="/">
         Return to Main Page <span class="link-arrow"></span>
     </a>
+    <script>
+        // Load saved theme or default to "dark"
+        const theme = localStorage.getItem('theme') || 'dark';
+        if (theme === 'light') document.body.classList.add('light-mode');
+
+        document.getElementById('toggleTheme').onclick = () => {
+            const isLight = document.body.classList.toggle('light-mode');
+            const newTheme = isLight ? 'light' : 'dark';
+            localStorage.setItem('theme', newTheme);
+        };
+    </script>
 </body>
+
+
 
 </html>
