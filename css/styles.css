@@ -4,11 +4,11 @@ Base CSS =======================================================
 :root {
   /* [Var] Color Palette (Black-Gray-Orange) [--b* or --a*] */
   --background-color: hsl(42, 5%, 15%);
-  --base-color-1: hsl(42, 50%, 80%);
-  --base-color-2: hsl(42, 15%, 60%);
-  --accent-color: hsl(42, 80%, 50%);
-  --accent-grad-1: hsl(10, 80%, 60%);
-  --accent-grad-2: hsl(50, 100%, 42%);
+  --base-color-1: hsl(42, 50%, 85%);
+  --base-color-2: hsl(42, 15%, 70%);
+  --accent-color: hsl(42, 85%, 50%);
+  --accent-grad-1: hsl(10, 90%, 50%);
+  --accent-grad-2: hsl(50, 95%, 42%);
   /* [Var] Specific Element Color [--c*] */
   --custom-sticky-top: hsla(42, 5%, 15%, 0.25);
   --custom-gradient-contact-icons: hsl(42, 60%, 15%);
@@ -27,26 +27,28 @@ Base CSS =======================================================
   /* [Fixed] Font (Inter Best Font)[--f*] */
   font-family: "Inter", sans-serif;
   font-feature-settings: "calt", "ss03", "cv02", "cv05", "cv11";
+  /* Make sure the scrolling is smooth */
+  scroll-behavior: smooth;
 }
 
 .light-mode {
   /* [Var] Color Palette (Black-Gray-Orange) [--b* or --a*] */
-  --background-color: hsl(50, 30%, 85%);
-  --base-color-1: hsl(100, 80%, 10%);
+  --background-color: hsl(36, 90%, 90%);
+  --base-color-1: hsl(24, 90%, 15%);
   --base-color-2: hsl(0, 0%, 0%);
   /* [Var] Specific Element Color [--c*] */
-  --accent-color: hsl(100, 60%, 40%);
-  --accent-grad-1: hsl(130, 60%, 35%);
-  --accent-grad-2: hsl(42, 60%, 40%);
-  --custom-sticky-top: hsla(42, 30%, 85%, 0.25);
-  --custom-gradient-contact-icons: hsl(100, 40%, 76%);
-  --custom-mouse-glow-1: hsla(100, 90%, 50%, 5%);
-  --custom-mouse-glow-2: hsla(100, 80%, 50%, 0);
-  --card-background: hsl(80, 35%, 75%);
-  --card-background-grad-1: hsl(80, 35%, 70%);
-  --card-background-grad-2: hsl(80, 40%, 70%);
-  --card-hover-top-border: hsl(78, 70%, 45%);
-  --card-not-hover-text-color: hsl(80, 40%, 30%);
+  --accent-color: hsl(35, 95%, 50%);
+  --accent-grad-1: hsl(42, 100%, 50%);
+  --accent-grad-2: hsl(10, 95%, 55%);
+  --custom-sticky-top: hsla(36, 95%, 90%, 0.5);
+  --custom-gradient-contact-icons: hsl(36, 95%, 85%);
+  --custom-mouse-glow-1: hsla(36, 90%, 50%, 5%);
+  --custom-mouse-glow-2: hsla(36, 80%, 50%, 0);
+  --card-background: hsl(36, 95%, 84%);
+  --card-background-grad-1: hsl(25, 95%, 86%);
+  --card-background-grad-2: hsl(32, 95%, 86%);
+  --card-hover-top-border: hsl(20, 90%, 80%);
+  --card-not-hover-text-color: hsl(20, 60%, 30%);
 }
 
 @supports (font-variation-settings: normal) {
@@ -67,12 +69,11 @@ Base CSS =======================================================
 
 /* Html Body and Base Background */
 body {
-  scrollbar-width: thin;
-  scrollbar-color: var(--base-color-2) var(--background-color);
-  scroll-behavior: smooth;
   background-color: var(--background-color);
   color: var(--base-color-2);
   font-size: var(--text-size-md);
+  scrollbar-width: thin;
+  scrollbar-color: var(--base-color-2) var(--background-color);
   line-height: 1.5;
   margin: 0;
 }
@@ -231,9 +232,6 @@ section {
   background-color: var(--custom-sticky-top);
   backdrop-filter: blur(0.5rem);
   z-index: 3;
-  h2 {
-    text-shadow: 0 0 4px var(--custom-sticky-top);
-  }
 }
 
 @supports not (backdrop-filter: blur(1rem)) {
@@ -405,6 +403,10 @@ div.card-wrapper:has(.card:focus-within) .card:has(.card-image):not(:focus-withi
   border-top: 0.1rem solid transparent;
   transform: translateY(0);
   transition: transform 0.3s ease-out;
+
+  h3 a {
+    margin-right: 0.5rem;
+  }
 }
 
 .card:has(.card-image) {
@@ -427,7 +429,8 @@ div.card-wrapper:has(.card:focus-within) .card:has(.card-image):not(:focus-withi
   border-top-color: var(--card-hover-top-border);
   transform: translateY(-0.2rem);
 
-  h3, .heading3 {
+  h3,
+  .heading3 {
     color: var(--accent-color);
   }
 
@@ -510,7 +513,6 @@ span.label {
   font-weight: 500;
   font-style: italic;
   padding: 0 0.75rem;
-  margin-left: 0.5rem;
   display: inline-block;
   color: var(--accent-color);
   border: 0.1rem solid currentColor;

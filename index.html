@@ -30,7 +30,7 @@
 </head>
 
 <body class="layout">
-  <div id="loading-screen">
+  <!-- <div id="loading-screen">
     <svg viewBox="0.0 0.0 192.0 192.0" fill="none" stroke="none" stroke-linecap="square" stroke-miterlimit="10"
       xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
       <clipPath id="p.0">
@@ -43,17 +43,19 @@
         <path id="dev-left" stroke="#5de619" stroke-width="4.0" stroke-linejoin="round" stroke-linecap="butt"
           d="m50.88 61.43288l46.07874 0l-12.906761 13.497845l-19.872269 0l0 20.782349l-13.299709 13.908783z"
           fill-rule="evenodd" />
-        <path id="charJ" fill="#e6a819" stroke="#e6a819" stroke-width="3.0" stroke-linejoin="round"
-          stroke-linecap="round"
+        <path id="charJ" fill="var(--accent-color)" stroke="var(--accent-color)" stroke-width="3.0"
+          stroke-linejoin="round" stroke-linecap="round"
           d="m53.44886 139.79875l0 0c0 14.5733795 11.818504 26.38881 26.400574 26.393707c14.582062 0.0048980713 26.408516 -11.802582 26.41832 -26.375961l-20.535881 -0.013793945c-0.0021820068 3.2344208 -2.632431 5.854965 -5.8755417 5.8538666c-3.2431107 -0.001083374 -5.8715897 -2.6233978 -5.8715897 -5.8578186z"
           fill-rule="evenodd" />
-        <path id="charJ" fill="#e6a819" stroke="#e6a819" stroke-width="3.0" stroke-linejoin="round"
-          stroke-linecap="round" d="m60.880814 34.455833l70.23622 0l0 16.535435l-70.23622 0z" fill-rule="evenodd" />
-        <path id="charJ" fill="#e6a819"
+        <path id="charJ" fill="var(--accent-color)" stroke="var(--accent-color)" stroke-width="3.0"
+          stroke-linejoin="round" stroke-linecap="round" d="m60.880814 34.455833l70.23622 0l0 16.535435l-70.23622 0z"
+          fill-rule="evenodd" />
+        <path id="charJ" fill="var(--accent-color)"
           d="m115.62463 148.34564l0 0c0 -5.0097046 4.0541077 -9.070877 9.055115 -9.070877l0 0c2.4015656 0 4.704773 0.9556885 6.402939 2.6567993c1.6981659 1.7011261 2.652176 4.0083313 2.652176 6.4140778l0 0c0 5.0097046 -4.0541077 9.070862 -9.055115 9.070862l0 0c-5.001007 0 -9.055115 -4.061157 -9.055115 -9.070862z"
           fill-rule="evenodd" />
-        <path id="charJ" fill="#e6a819" stroke="#e6a819" stroke-width="3.0" stroke-linejoin="round"
-          stroke-linecap="round" d="m106.26776 52.72527l0 86.55118l-20.535439 0l0 -86.55118z" fill-rule="evenodd" />
+        <path id="charJ" fill="var(--accent-color)" stroke="var(--accent-color)" stroke-width="3.0"
+          stroke-linejoin="round" stroke-linecap="round" d="m106.26776 52.72527l0 86.55118l-20.535439 0l0 -86.55118z"
+          fill-rule="evenodd" />
         <path id="charJ-slash" stroke="var(--background-color)" stroke-width="12.0" stroke-linejoin="round"
           stroke-linecap="round" d="m131.40172 61.43326l-70.80315 69.133865" fill-rule="evenodd" />
         <path id="dev-slash" stroke="#5de619" stroke-width="4.0" stroke-linejoin="round" stroke-linecap="round"
@@ -62,17 +64,21 @@
           d="m141.1181 61.43326l-70.80344 69.133865l-19.432777 0l70.803444 -69.133865z" fill-rule="evenodd" />
       </g>
     </svg>
-  </div>
+  </div> -->
   <!-- Actual Content Below -->
   <header>
     <div class="paddedLeftRight">
       <h1><a href="/" tabindex="-1">Jimmy Zhang</a></h1>
-      <label class="switch">
+      <label class="switch" title="Switch Theme">
         <input type="checkbox" id="toggleTheme">
         <div class="icon-wrapper">
           <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9m8 0v4m2-2h-4" />
+              d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9" />
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M18 4v4 m2 -2h-4">
+              <animate attributeName="opacity" values="1;0.2;1" dur="4s" repeatCount="indefinite" />
+            </path>
           </svg>
           <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"
@@ -369,6 +375,41 @@
       </div>
       <div class="paddedLeftRight-cardSection">
         <div class="card-wrapper">
+          <!-- New Card START -->
+          <div class="card">
+            <div class="card-image">
+              <a href="https://github.com/UndefinedConcept/ChatRoom/tree/main" tabindex="-1">
+                <picture>
+                  <source srcset="assets/images/preview-chatroom.webp" type="image/webp" />
+                  <img loading="lazy" decoding="async" width="640" height="350" src="assets/images/preview-chatroom.png"
+                    alt="Preview of ChatRoom" />
+                </picture>
+              </a>
+            </div>
+            <div class="card-text">
+              <h3>
+                <a href="https://github.com/UndefinedConcept/ChatRoom/tree/main" title="GitHub Repo">
+                  ChatRoom
+                  <span class="link-arrow"></span>
+                </a>
+                <span class="yellow label">UMD Scholars</span>
+              </h3>
+
+              <p>
+                WebSocket-based chat room website that provides real-time communication between users to help visualize
+                the internet traffic by sending and tracking packets. Made to be
+                hosted on Raspberry Pi and Asus Wireless Router.
+              </p>
+              <ul class="techStack">
+                <li class="langs">HTML/CSS</li>
+                <li>Javascript</li>
+                <li class="utils">WebSocket</li>
+                <li class="tools">Node.js</li>
+                <li>VS Code</li>
+              </ul>
+            </div>
+          </div>
+          <!-- New Card END -->
           <div class="card">
             <div class="card-image">
               <a href="https://github.com/UndefinedConcept/UndefinedConcept.github.io" tabindex="-1">
@@ -382,7 +423,7 @@
             </div>
             <div class="card-text">
               <h3>
-                <a href="https://github.com/UndefinedConcept/UndefinedConcept.github.io">
+                <a href="https://github.com/UndefinedConcept/UndefinedConcept.github.io" title="GitHub Repo">
                   Portfolio (Current)
                   <span class="link-arrow"></span>
                 </a>
@@ -413,7 +454,7 @@
             </div>
             <div class="card-text">
               <h3>
-                <a href="/assets/rp-ssai-24.pdf">
+                <a href="/assets/rp-ssai-24.pdf" title="PDF Presentation">
                   Comparison of Interpolation Methods...
                   <span class="link-arrow"></span>
                 </a>
@@ -421,7 +462,7 @@
               </h3>
 
               <p>
-                A environmental justice research practicum project with SSAI.
+                Environmental Justice research practicum project with SSAI.
                 Shows how the air quality data was gathered and analyzed as
                 well as the various interpolation methods being compared.
               </p>
