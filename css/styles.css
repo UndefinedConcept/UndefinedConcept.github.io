@@ -37,7 +37,7 @@ Base CSS =======================================================
   --base-color-1: hsl(24, 90%, 15%);
   --base-color-2: hsl(0, 0%, 0%);
   /* [Var] Specific Element Color [--c*] */
-  --accent-color: hsl(35, 95%, 50%);
+  --accent-color: hsl(35, 100%, 50%);
   --accent-grad-1: hsl(42, 100%, 50%);
   --accent-grad-2: hsl(10, 95%, 55%);
   --custom-sticky-top: hsla(36, 95%, 90%, 0.5);
