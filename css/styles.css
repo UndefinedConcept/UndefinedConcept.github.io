@@ -349,8 +349,6 @@ Skills Grid (<div><div>[<svg><p>] recommended)
 }
 
 .skill-item svg {
-  height: 2.5rem;
-  width: 2.5rem;
   margin-right: 0.8rem;
 }
 
@@ -486,10 +484,22 @@ div.card-image {
 }
 
 div.card-image img {
-  width: 100%;
+  width: 100%; 
+  margin-left: -0.1rem; /* to account for the borders */
   height: auto;
   object-fit: contain;
   border-radius: 0.4rem;
+  border: var(--card-hover-top-border) 0.1rem solid;
+  animation: skeleton-loading 2s infinite linear alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--card-background-grad-1);
+  }
+  100% {
+    background-color: var(--card-background-grad-2);
+  }
 }
 
 @media ((width > 689px) and (width < 1000px)) or (width > 1200px) {
@@ -632,18 +642,12 @@ Glowing-Mouse (Javascript Depended)
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
-
-  /*************************************************************
-  [>1000px] Sections Stuff
-  *************************************************************/
-  #ScrollUpBtn {
-    margin-right: 0.75rem;
-  }
 }
 
 /***************************************************************
-[ALL] Loading Screen
+[ALL] Loading Animations =======================================
 ***************************************************************/
+/* Loading Screen */
 #loading-screen {
   position: fixed;
   width: 100vw;
@@ -661,7 +665,7 @@ Glowing-Mouse (Javascript Depended)
   width: min(50vh, 50vw);
 }
 
-/* SVG animation styles */
+/* Loading Screen SVG animation */
 svg #dev-right {
   opacity: 0;
   animation: fadeInRight 1s forwards;
