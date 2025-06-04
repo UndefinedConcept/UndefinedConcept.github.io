@@ -195,7 +195,7 @@ a:focus {
   position: absolute;
   width: 100%;
   height: 100%;
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 /***************************************************************
@@ -493,6 +493,10 @@ div.card-image img {
   animation: skeleton-loading 2s infinite linear alternate;
 }
 
+div.card-image img.imgLoaded {
+  animation: none;
+}
+
 @keyframes skeleton-loading {
   0% {
     background-color: var(--card-background-grad-1);
@@ -731,5 +735,26 @@ svg #charJ-slash {
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+/* Fade in items on scroll (css part) */
+.scroll-hidden {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s, transform 0.7s ease-out;
+}
+
+.scroll-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion) {
+  .scroll-hidden {
+    transition: none;
+  }
+  .loading-screen {
+    display: none;
   }
 }

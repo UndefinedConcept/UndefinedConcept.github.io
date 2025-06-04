@@ -47,3 +47,37 @@ document.addEventListener("mousemove", function (e) {
   glowMouse.style.left = `${e.clientX - 240}px`;
   glowMouse.style.top = `${e.clientY - 240}px`;
 });
+
+
+// Remove animation for the skeleton loaded images
+document.querySelectorAll('div.card-image img').forEach(img => {
+  if (img.complete) {
+    img.classList.add('imgLoaded');
+  } else {
+    img.addEventListener('load', () => img.classList.add('imgLoaded'));
+    img.addEventListener('error', () => img.classList.add('imgLoaded'));
+  }
+});
+
+// Fade in items on scroll (js part)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('scroll-show');
+      // wait for the animation to finish before removing the observer
+      setTimeout(() => {
+        entry.target.classList.remove('scroll-hidden');
+        entry.target.classList.remove('scroll-show');
+        observer.unobserve(entry.target);
+      }, 800); // Adjust the timeout to match the animation duration
+    }
+  });
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+// add the scroll-hidden class to hiddenElements
+hiddenElements.forEach((el) => {
+  el.classList.add('scroll-hidden');
+  el.classList.remove('hidden');
+});
+hiddenElements.forEach((el) => observer.observe(el));
