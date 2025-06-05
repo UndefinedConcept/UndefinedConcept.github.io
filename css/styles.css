@@ -3,10 +3,10 @@ Base CSS =======================================================
 ***************************************************************/
 :root {
   /* [Var] Color Palette (Black-Gray-Orange) [--b* or --a*] */
-  --background-color: hsl(42, 5%, 15%);
-  --base-color-1: hsl(42, 50%, 85%);
+  --background-color: #282724;
+  --base-color-1: hsl(41, 50%, 85%);
   --base-color-2: hsl(42, 15%, 70%);
-  --accent-color: hsl(42, 85%, 50%);
+  --accent-color: #f4a825;
   --accent-grad-1: hsl(10, 90%, 50%);
   --accent-grad-2: hsl(50, 95%, 42%);
   /* [Var] Specific Element Color [--c*] */
@@ -33,21 +33,21 @@ Base CSS =======================================================
 
 .light-mode {
   /* [Var] Color Palette (Black-Gray-Orange) [--b* or --a*] */
-  --background-color: hsl(36, 90%, 90%);
+  --background-color: hsl(36, 90%, 95%);
   --base-color-1: hsl(24, 90%, 15%);
   --base-color-2: hsl(0, 0%, 0%);
   /* [Var] Specific Element Color [--c*] */
-  --accent-color: hsl(36, 100%, 60%);
-  --accent-grad-1: hsl(44, 100%, 50%);
-  --accent-grad-2: hsl(10, 95%, 55%);
-  --custom-sticky-top: hsla(36, 95%, 90%, 0.5);
+  --accent-color: hsl(40, 100%, 50%);
+  --accent-grad-1: hsl(48, 100%, 50%);
+  --accent-grad-2: hsl(8, 95%, 55%);
+  --custom-sticky-top: hsla(36, 90%, 95%, 0.5);
   --custom-gradient-contact-icons: hsl(36, 95%, 85%);
-  --custom-mouse-glow-1: hsla(36, 90%, 50%, 5%);
+  --custom-mouse-glow-1: hsla(36, 90%, 30%, 5%);
   --custom-mouse-glow-2: hsla(36, 80%, 50%, 0);
-  --card-background: hsl(36, 95%, 84%);
-  --card-background-grad-1: hsl(25, 95%, 86%);
-  --card-background-grad-2: hsl(32, 95%, 86%);
-  --card-hover-top-border: hsl(20, 90%, 80%);
+  --card-background: hsl(36, 95%, 90%);
+  --card-background-grad-1: hsl(25, 95%, 90%);
+  --card-background-grad-2: hsl(32, 95%, 90%);
+  --card-hover-top-border: hsl(20, 90%, 85%);
   --card-not-hover-text-color: hsl(20, 60%, 30%);
 }
 
