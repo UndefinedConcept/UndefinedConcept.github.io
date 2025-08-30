@@ -23,7 +23,7 @@ Base CSS =======================================================
   --text-size-sm: 0.8rem;
   --text-size-md: 1rem;
   --text-size-lg: 1.2rem;
-  --text-size-title: 2.5rem;
+  --text-size-title: 2.4rem;
   /* [Fixed] Font (Inter Best Font)[--f*] */
   font-family: "Inter", sans-serif;
   font-feature-settings: "calt", "ss03", "cv02", "cv05", "cv11";
@@ -97,6 +97,13 @@ h1 {
   mix-blend-mode: normal;
 }
 
+@media (width >= 400px) and (width <1000px) {
+  h1 {
+    /* also changes at 1000px to 3.5rem */
+    font-size: 3rem;
+  }
+}
+
 h2 {
   font-size: var(--text-size-lg);
   text-transform: uppercase;
@@ -156,6 +163,8 @@ a:focus {
   align-items: center;
   cursor: pointer;
   padding: 0.5rem 0;
+  font-size: var(--text-size-lg);
+  font-weight: bold;
 
   input {
     display: none;
@@ -186,8 +195,8 @@ a:focus {
 
 .icon-wrapper {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 1.8rem;
+  height: 1.8rem;
   margin-right: 8px;
 }
 
