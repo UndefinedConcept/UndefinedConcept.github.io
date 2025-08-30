@@ -97,7 +97,7 @@ h1 {
   mix-blend-mode: normal;
 }
 
-@media (width >= 400px) and (width <1000px) {
+@media (width >=400px) and (width <1000px) {
   h1 {
     /* also changes at 1000px to 3.5rem */
     font-size: 3rem;
@@ -165,6 +165,11 @@ a:focus {
   padding: 0.5rem 0;
   font-size: var(--text-size-lg);
   font-weight: bold;
+
+  #themeText {
+    font-size: var(--text-size-lg);
+    font-weight: bold;
+  }
 
   input {
     display: none;
@@ -493,8 +498,9 @@ div.card-image {
 }
 
 div.card-image img {
-  width: 100%; 
-  margin-left: -0.1rem; /* to account for the borders */
+  width: 100%;
+  margin-left: -0.1rem;
+  /* to account for the borders */
   height: auto;
   object-fit: contain;
   border-radius: 0.4rem;
@@ -510,6 +516,7 @@ div.card-image img.imgLoaded {
   0% {
     background-color: var(--card-background-grad-1);
   }
+
   100% {
     background-color: var(--card-background-grad-2);
   }
@@ -763,6 +770,7 @@ svg #charJ-slash {
   .scroll-hidden {
     transition: none;
   }
+
   .loading-screen {
     display: none;
   }
